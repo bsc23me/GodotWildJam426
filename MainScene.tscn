@@ -11,10 +11,11 @@ script = ExtResource("1_rpqi1")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1161836502]
 
-[node name="GhostConstruct" type="Sprite2D" parent="." unique_id=1144518270 node_paths=PackedStringArray("scene_root", "grid_manager_obj")]
+[node name="GhostConstruct" type="Sprite2D" parent="." unique_id=1144518270 node_paths=PackedStringArray("scene_root")]
 position = Vector2(256, 264)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_3mqji")
 script = ExtResource("2_x4av3")
+grid_scale = 64
 scene_root = NodePath("..")
 tile_node = "res://sub_scenes/construct.tscn"
-grid_manager_obj = NodePath("../GridManager")
