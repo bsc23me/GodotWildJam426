@@ -1,15 +1,20 @@
 [gd_scene format=3 uid="uid://chatc284qh4gh"]
 
 [ext_resource type="Texture2D" uid="uid://crtms5edr7pkj" path="res://icon.svg" id="1_3mqji"]
-[ext_resource type="Script" uid="uid://dogk0odjmsww5" path="res://_scripts/GhostConstruct.gd" id="2_x4av3"]
+[ext_resource type="Script" uid="uid://caerpow405td4" path="res://_scripts/grid_manager.gd" id="1_rpqi1"]
+[ext_resource type="Script" uid="uid://dogk0odjmsww5" path="res://_scripts/ghost_construct.gd" id="2_x4av3"]
 
 [node name="Node2D" type="Node2D" unique_id=1288777129]
 
+[node name="GridManager" type="Node2D" parent="." unique_id=144078494]
+script = ExtResource("1_rpqi1")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1161836502]
 
-[node name="GhostConstruct" type="Sprite2D" parent="." unique_id=1144518270 node_paths=PackedStringArray("scene_root")]
+[node name="GhostConstruct" type="Sprite2D" parent="." unique_id=1144518270 node_paths=PackedStringArray("scene_root", "grid_manager_obj")]
 position = Vector2(256, 264)
 texture = ExtResource("1_3mqji")
 script = ExtResource("2_x4av3")
 scene_root = NodePath("..")
 tile_node = "res://sub_scenes/construct.tscn"
+grid_manager_obj = NodePath("../GridManager")

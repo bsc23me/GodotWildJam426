@@ -15,6 +15,10 @@ run/main_scene="uid://chatc284qh4gh"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GridManager="*uid://caerpow405td4"
+
 [dotnet]
 
 project/assembly_name="GodotWildJam426"
