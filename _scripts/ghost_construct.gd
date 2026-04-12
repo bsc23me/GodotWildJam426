@@ -65,5 +65,9 @@ func place_tile(tile_type):
 	tile.position = position
 	tile.rotation = rotation
 	tile.construct_type = tile_type
+	tile.output_direction = dir_from_rot(rotation)
 	scene_root.add_child(tile)
 	GridManager.add_tile(tile.position, tile)
+	
+func dir_from_rot(rot):
+	return Vector2(cos(rot), sin(rot))

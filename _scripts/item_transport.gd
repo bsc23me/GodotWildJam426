@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 	if GridManager.has_tile(grid_position):
 		var tile = GridManager.get_tile(grid_position)
 		if tile.construct_type == 1:
-			get_parent().position += Vector2(1,0)
+			get_parent().position += tile.output_direction
 		pass

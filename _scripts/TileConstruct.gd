@@ -2,8 +2,8 @@ extends Sprite2D
 
 class_name TileConstruct
 
-var construct_type
-
+var construct_type: int
+var output_direction: Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
