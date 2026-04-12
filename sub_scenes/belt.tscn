@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bauuco10jmc7d"]
+
+[ext_resource type="Texture2D" uid="uid://cl14b8ghnbe16" path="res://sprites/Belt_temp.png" id="1_susb0"]
+
+[node name="Belt" type="Sprite2D" unique_id=1601783012]
+texture = ExtResource("1_susb0")

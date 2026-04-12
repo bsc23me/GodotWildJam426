@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://crtms5edr7pkj" path="res://icon.svg" id="1_3mqji"]
 [ext_resource type="Script" uid="uid://caerpow405td4" path="res://_scripts/grid_manager.gd" id="1_rpqi1"]
 [ext_resource type="Script" uid="uid://dogk0odjmsww5" path="res://_scripts/ghost_construct.gd" id="2_x4av3"]
+[ext_resource type="Texture2D" uid="uid://cl14b8ghnbe16" path="res://sprites/Belt_temp.png" id="4_rf2cd"]
+[ext_resource type="Texture2D" uid="uid://ckj2q3p12eslf" path="res://sprites/Rose_temp.png" id="5_a814b"]
 
 [node name="Node2D" type="Node2D" unique_id=1288777129]
 
@@ -18,4 +20,10 @@ texture = ExtResource("1_3mqji")
 script = ExtResource("2_x4av3")
 grid_scale = 64
 scene_root = NodePath("..")
-tile_node = "res://sub_scenes/construct.tscn"
+tile_node = Array[String](["res://sub_scenes/construct.tscn", "res://sub_scenes/belt.tscn"])
+belt_texture = ExtResource("4_rf2cd")
+default_texture = ExtResource("1_3mqji")
+
+[node name="Rose" type="Sprite2D" parent="." unique_id=1576680889]
+position = Vector2(308, 139)
+texture = ExtResource("5_a814b")
