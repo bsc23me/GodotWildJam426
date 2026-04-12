@@ -1,6 +1,8 @@
 extends Node
 
-var tiles: Dictionary[Vector2i, Node] = {}
+@export var GRID_SCALE = 64
+
+var tiles: Dictionary[Vector2i, TileConstruct] = {}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,7 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func add_tile(position: Vector2i, tile: Node):
+func add_tile(position: Vector2i, tile: TileConstruct):
 	tiles.set(position, tile)
 
 func remove_tile(position: Vector2i):
@@ -21,3 +23,13 @@ func remove_tile(position: Vector2i):
 
 func has_tile(position: Vector2i):
 	return tiles.has(position)
+	
+func get_tile(position: Vector2i):
+	return tiles[position]
+	
+func grid_position(position: Vector2):
+	position /= GRID_SCALE
+	position = floor(position)
+	position += Vector2(0.5,0.5)
+	position *= GRID_SCALE
+	return position

@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://ifuv43j6i65y"]
 
 [ext_resource type="Texture2D" uid="uid://crtms5edr7pkj" path="res://icon.svg" id="1_o7mvy"]
+[ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_aiesc"]
 
-[node name="Construct" type="Sprite2D" unique_id=1102398436]
+[node name="Construct" type="Sprite2D" unique_id=1738615040]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_o7mvy")
+script = ExtResource("2_aiesc")
+metadata/_custom_type_script = "uid://da145ili7n1y2"

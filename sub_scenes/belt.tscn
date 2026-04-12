@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bauuco10jmc7d"]
 
 [ext_resource type="Texture2D" uid="uid://cl14b8ghnbe16" path="res://sprites/Belt_temp.png" id="1_susb0"]
+[ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_nxa6v"]
 
-[node name="Belt" type="Sprite2D" unique_id=1601783012]
+[node name="Belt" type="Sprite2D" unique_id=592253102]
 texture = ExtResource("1_susb0")
+script = ExtResource("2_nxa6v")
+metadata/_custom_type_script = "uid://da145ili7n1y2"
