@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c1foaw01w5wh8"]
+
+[ext_resource type="Texture2D" uid="uid://b67h1euloh623" path="res://sprites/TilesAndItems.png" id="1_41gxx"]
+[ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_u0qn4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
+atlas = ExtResource("1_41gxx")
+region = Rect2(64, 48, 16, 16)
+
+[node name="WoodCutter" type="Sprite2D" unique_id=899047246]
+texture = SubResource("AtlasTexture_468fr")
+script = ExtResource("2_u0qn4")
+metadata/_custom_type_script = "uid://da145ili7n1y2"

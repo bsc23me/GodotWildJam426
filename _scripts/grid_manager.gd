@@ -1,6 +1,6 @@
 extends Node
 
-@export var GRID_SCALE = 64
+@export var GRID_SCALE = 16
 
 var tiles: Dictionary[Vector2i, TileConstruct] = {}
 # Called when the node enters the scene tree for the first time.

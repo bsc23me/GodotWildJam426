@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GridManager="*uid://caerpow405td4"
 
+[display]
+
+window/stretch/scale=4.0
+
 [dotnet]
 
 project/assembly_name="GodotWildJam426"
@@ -29,4 +33,5 @@ project/assembly_name="GodotWildJam426"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

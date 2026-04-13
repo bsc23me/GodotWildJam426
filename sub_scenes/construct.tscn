@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://ifuv43j6i65y"]
 
-[ext_resource type="Texture2D" uid="uid://crtms5edr7pkj" path="res://icon.svg" id="1_o7mvy"]
+[ext_resource type="Texture2D" uid="uid://b67h1euloh623" path="res://sprites/TilesAndItems.png" id="1_aiesc"]
 [ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_aiesc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkpwy"]
+atlas = ExtResource("1_aiesc")
+region = Rect2(64, 32, 16, 16)
 
 [node name="Construct" type="Sprite2D" unique_id=1738615040]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_o7mvy")
+texture = SubResource("AtlasTexture_dkpwy")
 script = ExtResource("2_aiesc")
 metadata/_custom_type_script = "uid://da145ili7n1y2"

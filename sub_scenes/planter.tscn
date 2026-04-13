@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c1gijmawb1f75"]
+
+[ext_resource type="Texture2D" uid="uid://b67h1euloh623" path="res://sprites/TilesAndItems.png" id="1_02sgj"]
+[ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_7domx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
+atlas = ExtResource("1_02sgj")
+region = Rect2(64, 32, 16, 16)
+
+[node name="Planter" type="Sprite2D" unique_id=1052250189]
+texture = SubResource("AtlasTexture_468fr")
+script = ExtResource("2_7domx")
+metadata/_custom_type_script = "uid://da145ili7n1y2"
