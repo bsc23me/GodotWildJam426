@@ -55,6 +55,9 @@ func _input(event):
 				var off = tile_tex_offsets[tile] * GridManager.GRID_SCALE
 				tile_texture.region = Rect2(off.x,off.y,GridManager.GRID_SCALE,GridManager.GRID_SCALE)
 				texture = tile_texture
+				if tile == 0:
+					texture = default_texture
+					scale = Vector2(0.25,0.25)
 				selected_tile_type = tile + 1
 			#if event.keycode == KEY_2: # Temp Default Selection / DEPRECATED
 				#scale = Vector2(0.125,0.125)
@@ -86,8 +89,9 @@ func place_tile(tile_type):
 	tile.rotation = rotation
 	tile.construct_type = tile_type
 	tile.output_direction = dir_from_rot(rotation)
+	tile.scene_root = scene_root
 	scene_root.add_child(tile)
 	GridManager.add_tile(tile.position, tile)
 	
 func dir_from_rot(rot):
-	return Vector2(cos(rot), sin(rot))
+	return Vector2i(round(cos(rot)), round(sin(rot)))

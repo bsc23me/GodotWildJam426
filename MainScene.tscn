@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://crtms5edr7pkj" path="res://icon.svg" id="1_3mqji"]
 [ext_resource type="Script" uid="uid://caerpow405td4" path="res://_scripts/grid_manager.gd" id="1_rpqi1"]
 [ext_resource type="Script" uid="uid://dogk0odjmsww5" path="res://_scripts/ghost_construct.gd" id="2_x4av3"]
+[ext_resource type="Texture2D" uid="uid://cl14b8ghnbe16" path="res://sprites/Belt_temp.png" id="4_rf2cd"]
 [ext_resource type="Texture2D" uid="uid://b67h1euloh623" path="res://sprites/TilesAndItems.png" id="5_a814b"]
 [ext_resource type="Script" uid="uid://dm1ty0ofd1al1" path="res://_scripts/item_transport.gd" id="6_a814b"]
 
@@ -28,13 +29,13 @@ script = ExtResource("2_x4av3")
 scene_root = NodePath("..")
 tile_node = Array[String](["res://sub_scenes/construct.tscn", "res://sub_scenes/belt.tscn", "res://sub_scenes/pipe.tscn", "res://sub_scenes/planter.tscn", "res://sub_scenes/siphon.tscn", "res://sub_scenes/drill.tscn", "res://sub_scenes/wood_cutter.tscn", "res://sub_scenes/plant_processor.tscn", "res://sub_scenes/brewery.tscn"])
 tile_texture = SubResource("AtlasTexture_rf2cd")
-default_texture = ExtResource("1_3mqji")
+default_texture = ExtResource("4_rf2cd")
 tile_tex_offsets = Array[Vector2]([Vector2(0, 0), Vector2(0, 2), Vector2(4, 2), Vector2(3, 2), Vector2(5, 3), Vector2(4, 3), Vector2(5, 2), Vector2(3, 3)])
 
-[node name="Rose" type="Sprite2D" parent="." unique_id=1576680889]
+[node name="Rose" type="Sprite2D" parent="." unique_id=1714699000]
 z_index = 1
 position = Vector2(36, 33)
 texture = SubResource("AtlasTexture_5crlr")
 
-[node name="ItemTransport" type="Node2D" parent="Rose" unique_id=410569790]
+[node name="ItemTransport" type="Node2D" parent="Rose" unique_id=1874396418]
 script = ExtResource("6_a814b")
