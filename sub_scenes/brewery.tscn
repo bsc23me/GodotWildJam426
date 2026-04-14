@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://l3creqha15la"]
 
 [ext_resource type="Texture2D" uid="uid://b67h1euloh623" path="res://sprites/TilesAndItems.png" id="1_lt7jh"]
-[ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_ro2rj"]
+[ext_resource type="Script" uid="uid://cxtcarp8y08jk" path="res://_scripts/crafter.gd" id="2_lt7jh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
 atlas = ExtResource("1_lt7jh")
@@ -9,5 +9,8 @@ region = Rect2(48, 48, 16, 16)
 
 [node name="Brewery" type="Sprite2D" unique_id=1765083466]
 texture = SubResource("AtlasTexture_468fr")
-script = ExtResource("2_ro2rj")
+script = ExtResource("2_lt7jh")
+needed_ingredients = Array[int]([2])
+max_items = 999999
+delay = 1.0
 metadata/_custom_type_script = "uid://da145ili7n1y2"

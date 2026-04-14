@@ -12,9 +12,11 @@ var selected_tile_type: int
 
 var left_held
 var right_held
+var can_place: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	can_place = true
 	selected_tile_type = 0
 	scenes.resize(tile_node.size())
 	for i in tile_node.size():
@@ -25,12 +27,12 @@ func _ready() -> void:
 	
 	self_modulate = Color(1.0, 1.0, 1.0, 0.376)
 
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		position = GridManager.grid_position(event.position)
-		
 		#position = snap(event.position, GridManager.GRID_SCALE)
 		
+#func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		# Place Construct
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -49,7 +51,7 @@ func _input(event):
 					rotation -= PI / 2
 				else:
 					rotation += PI / 2
-			if event.keycode >= KEY_1 and event.keycode <= KEY_9: # Tile Selection
+			if event.keycode >= KEY_1 and event.keycode <= KEY_8: # Tile Selection
 				scale = Vector2(1,1)
 				var tile = event.keycode - KEY_1
 				var off = tile_tex_offsets[tile] * GridManager.GRID_SCALE
@@ -95,3 +97,11 @@ func place_tile(tile_type):
 	
 func dir_from_rot(rot):
 	return Vector2i(round(cos(rot)), round(sin(rot)))
+
+
+func _select_construct(extra_arg_0: int) -> void:
+	scale = Vector2(1,1)
+	var off = tile_tex_offsets[extra_arg_0] * GridManager.GRID_SCALE
+	tile_texture.region = Rect2(off.x,off.y,GridManager.GRID_SCALE,GridManager.GRID_SCALE)
+	texture = tile_texture
+	selected_tile_type = extra_arg_0 + 1

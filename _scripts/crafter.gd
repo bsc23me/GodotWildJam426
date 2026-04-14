@@ -14,7 +14,8 @@ var timeout
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	product = load(product_path)
+	if product_path:
+		product = load(product_path)
 	timeout = delay
 	for i in needed_ingredients.size():
 		ingredient_list.set(needed_ingredients[i],0)
@@ -25,7 +26,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if has_ingredients():
 		timeout -= delta
-	if timeout <= 0:
+	if product and timeout <= 0:
 		var space_state = get_world_2d().direct_space_state
 		var ray = PhysicsRayQueryParameters2D.create(position, position + output_direction * 16)
 		var hit = space_state.intersect_ray(ray)
@@ -36,7 +37,6 @@ func _physics_process(delta: float) -> void:
 			scene_root.add_child(p)
 			for i in needed_ingredients.size():
 				ingredient_list.set(needed_ingredients[i],ingredient_list[needed_ingredients[i]] - 1)
-	pass
 	
 func has_ingredients() -> bool:
 	for i in needed_ingredients.size():
@@ -49,7 +49,6 @@ func add_ingredient(type: int) -> void:
 		ingredient_list.set(type,ingredient_list[type] + 1)
 	else:
 		ingredient_list.set(type,1)
-	pass
 	
 func needs_ingredient(type: int) -> bool:
 	return needed_ingredients.has(type) and ingredient_list[type] < max_items
