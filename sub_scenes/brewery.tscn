@@ -10,6 +10,8 @@ region = Rect2(48, 48, 16, 16)
 [node name="Brewery" type="Sprite2D" unique_id=1765083466]
 texture = SubResource("AtlasTexture_468fr")
 script = ExtResource("2_lt7jh")
+resource_type = 3
+resource_amount = 100
 needed_ingredients = Array[int]([2])
 max_items = 999999
 delay = 1.0

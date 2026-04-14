@@ -1,7 +1,7 @@
 extends Node2D
 
 var p
-@export var type: int
+@export var type: GameConstants.ItemType
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

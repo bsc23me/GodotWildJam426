@@ -1,5 +1,6 @@
 extends Node
 
+
 var GRID_SCALE: int = 16
 var GRID_SNAP_SPEED: float = 0.5
 
