@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://drggwnpc0x72d"]
 
-[ext_resource type="Texture2D" uid="uid://b67h1euloh623" path="res://sprites/TilesAndItems.png" id="1_uhpf7"]
+[ext_resource type="Texture2D" uid="uid://ctooftfwpgrxr" path="res://sprites/TilesAndItens.png" id="1_uhpf7"]
 [ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_5tvnn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
 atlas = ExtResource("1_uhpf7")
-region = Rect2(48, 32, 16, 16)
+region = Rect2(48, 64, 16, 16)
 
 [node name="Siphon" type="Sprite2D" unique_id=101385395]
 texture = SubResource("AtlasTexture_468fr")

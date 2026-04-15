@@ -14,7 +14,7 @@ var right_held: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_select_construct(TileConstruct.TileType.BELT)
+	#_select_construct(TileConstruct.TileType.BELT)
 	scenes.resize(tile_paths.size())
 	for i in tile_paths.size():
 		scenes[i] = load(tile_paths[i])
@@ -23,8 +23,21 @@ func _ready() -> void:
 	right_held = false
 	
 	self_modulate = Color(1.0, 1.0, 1.0, 0.376)
+	hide()
 
 func _unhandled_input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("building"):
+		if !GridManager.building_mode:
+			GridManager.building_mode = true
+			show()
+			return
+		GridManager.building_mode = false
+		hide()
+	
+	if !GridManager.building_mode:
+		return
+	
 	if event is InputEventMouseMotion:
 		position = GridManager.grid_position(event.position)
 	
@@ -52,7 +65,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					scale = Vector2(0.25,0.25)
 
 # Called once per frame
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if left_held and !GridManager.has_tile(position):
 		place_tile(selected_tile_type)
 	if right_held:
@@ -77,6 +90,8 @@ func dir_from_rot(rot):
 
 ## Change the ghost construct to tile
 func _select_construct(tile: TileConstruct.TileType) -> void:
+	GridManager.building_mode = true
+	show()
 	scale = Vector2(1,1)
 	var off = tile_tex_offsets[tile] * GridManager.GRID_SCALE
 	tile_texture.region = Rect2(off.x,off.y,GridManager.GRID_SCALE,GridManager.GRID_SCALE)

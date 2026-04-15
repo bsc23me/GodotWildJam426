@@ -2,4 +2,13 @@ extends Node
 
 class_name GameConstants
 
-enum ItemType {DEFAULT, ROSE, ROSE_POWDER}
+enum ItemType {
+DEFAULT, 
+ROSE_PLANT, 
+FIRE_PLANT, 
+MANA_PLANT, 
+POISON_PLANT, 
+FIRE_POWDER, 
+MANA_POWDER, 
+POISON_POWDER, 
+ROSE_POWDER}

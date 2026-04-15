@@ -3,6 +3,7 @@ extends Node
 
 var GRID_SCALE: int = 16
 var GRID_SNAP_SPEED: float = 0.5
+var building_mode : bool = false
 
 var tiles: Dictionary[Vector2i, TileConstruct] = {}
 

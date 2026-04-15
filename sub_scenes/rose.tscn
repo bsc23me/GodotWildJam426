@@ -1,14 +1,10 @@
 [gd_scene format=3 uid="uid://01dbdpaw30f2"]
 
-[ext_resource type="Texture2D" uid="uid://b67h1euloh623" path="res://sprites/TilesAndItems.png" id="1_m7wxf"]
+[ext_resource type="Texture2D" uid="uid://ctooftfwpgrxr" path="res://sprites/TilesAndItens.png" id="2_m7wxf"]
 [ext_resource type="Script" uid="uid://dm1ty0ofd1al1" path="res://_scripts/item_transport.gd" id="2_wm63y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7wxf"]
 size = Vector2(14, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m7wxf"]
-atlas = ExtResource("1_m7wxf")
-region = Rect2(16, 80, 16, 16)
 
 [node name="Rose" type="RigidBody2D" unique_id=471784506]
 z_index = 1
@@ -22,4 +18,7 @@ type = 1
 shape = SubResource("RectangleShape2D_m7wxf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1942243717]
-texture = SubResource("AtlasTexture_m7wxf")
+texture = ExtResource("2_m7wxf")
+hframes = 6
+vframes = 6
+frame = 1

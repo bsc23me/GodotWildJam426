@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c23eusp10ea0r"]
 
-[ext_resource type="Texture2D" uid="uid://b67h1euloh623" path="res://sprites/TilesAndItems.png" id="1_c8fvg"]
+[ext_resource type="Texture2D" uid="uid://ctooftfwpgrxr" path="res://sprites/TilesAndItens.png" id="1_0g50j"]
 [ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_0g50j"]
 [ext_resource type="Script" uid="uid://bj7t0e5p1du27" path="res://_scripts/resource_generator.gd" id="3_0g50j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
-atlas = ExtResource("1_c8fvg")
-region = Rect2(80, 48, 16, 16)
+atlas = ExtResource("1_0g50j")
+region = Rect2(80, 80, 16, 16)
 
 [node name="Drill" type="Sprite2D" unique_id=1708173246]
 texture = SubResource("AtlasTexture_468fr")

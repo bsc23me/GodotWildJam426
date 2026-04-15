@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bp5qvjhy560mc"]
 
-[ext_resource type="Texture2D" uid="uid://b67h1euloh623" path="res://sprites/TilesAndItems.png" id="1_h70mr"]
+[ext_resource type="Texture2D" uid="uid://ctooftfwpgrxr" path="res://sprites/TilesAndItens.png" id="1_h70mr"]
 [ext_resource type="Script" uid="uid://cxtcarp8y08jk" path="res://_scripts/crafter.gd" id="2_h70mr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
 atlas = ExtResource("1_h70mr")
-region = Rect2(80, 32, 16, 16)
+region = Rect2(80, 64, 16, 16)
 
 [node name="PlantProcessor" type="Sprite2D" unique_id=1449174723]
 texture = SubResource("AtlasTexture_468fr")

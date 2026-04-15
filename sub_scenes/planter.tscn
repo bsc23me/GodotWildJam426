@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://c1gijmawb1f75"]
 
-[ext_resource type="Texture2D" uid="uid://b67h1euloh623" path="res://sprites/TilesAndItems.png" id="1_02sgj"]
+[ext_resource type="Texture2D" uid="uid://ctooftfwpgrxr" path="res://sprites/TilesAndItens.png" id="1_02sgj"]
 [ext_resource type="Script" uid="uid://cxtcarp8y08jk" path="res://_scripts/crafter.gd" id="2_02sgj"]
+[ext_resource type="Script" uid="uid://gcq7ll666m8l" path="res://_scripts/button.gd" id="3_7domx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
 atlas = ExtResource("1_02sgj")
-region = Rect2(64, 32, 16, 16)
+region = Rect2(64, 64, 16, 16)
 
 [node name="Planter" type="Sprite2D" unique_id=1052250189]
 texture = SubResource("AtlasTexture_468fr")
@@ -13,3 +14,21 @@ script = ExtResource("2_02sgj")
 product_path = "res://sub_scenes/rose.tscn"
 delay = 1.0
 metadata/_custom_type_script = "uid://da145ili7n1y2"
+
+[node name="Button" type="Button" parent="." unique_id=401807421 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_7domx")
+node = NodePath("..")
+scaling = Vector2(1.1, 1.1)
+consider = true
+
+[node name="Panel" type="Panel" parent="Button" unique_id=880754155]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -42.0
+offset_right = 28.0
+offset_bottom = -2.0
