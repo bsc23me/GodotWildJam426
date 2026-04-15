@@ -65,10 +65,10 @@ scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_3mqji")
 script = ExtResource("2_x4av3")
 scene_root = NodePath("..")
-tile_node = Array[String](["res://sub_scenes/construct.tscn", "res://sub_scenes/belt.tscn", "res://sub_scenes/pipe.tscn", "res://sub_scenes/planter.tscn", "res://sub_scenes/siphon.tscn", "res://sub_scenes/drill.tscn", "res://sub_scenes/wood_cutter.tscn", "res://sub_scenes/plant_processor.tscn", "res://sub_scenes/brewery.tscn"])
+tile_paths = Array[String](["", "res://sub_scenes/belt.tscn", "res://sub_scenes/pipe.tscn", "res://sub_scenes/planter.tscn", "res://sub_scenes/siphon.tscn", "res://sub_scenes/drill.tscn", "res://sub_scenes/wood_cutter.tscn", "res://sub_scenes/plant_processor.tscn", "res://sub_scenes/brewery.tscn"])
 tile_texture = SubResource("AtlasTexture_rf2cd")
 default_texture = ExtResource("4_rf2cd")
-tile_tex_offsets = Array[Vector2]([Vector2(0, 0), Vector2(0, 2), Vector2(4, 2), Vector2(3, 2), Vector2(5, 3), Vector2(4, 3), Vector2(5, 2), Vector2(3, 3)])
+tile_tex_offsets = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 2), Vector2(4, 2), Vector2(3, 2), Vector2(5, 3), Vector2(4, 3), Vector2(5, 2), Vector2(3, 3)])
 
 [node name="Control" type="Control" parent="." unique_id=432439357]
 visible = false
@@ -79,14 +79,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=153047569]
-visible = false
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -32.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_right = 58.0
+offset_bottom = 41.0
 
 [node name="Constructs" type="HBoxContainer" parent="." unique_id=1436227727]
 anchors_preset = -1
@@ -143,11 +137,11 @@ text = "  Wood: 9999
 Money: 9999"
 script = ExtResource("8_hbc2u")
 
-[connection signal="button_up" from="Constructs/Button" to="Node2D/GhostConstruct" method="_select_construct" binds= [0]]
-[connection signal="button_up" from="Constructs/Button2" to="Node2D/GhostConstruct" method="_select_construct" binds= [1]]
-[connection signal="button_up" from="Constructs/Button3" to="Node2D/GhostConstruct" method="_select_construct" binds= [2]]
-[connection signal="button_up" from="Constructs/Button4" to="Node2D/GhostConstruct" method="_select_construct" binds= [3]]
-[connection signal="button_up" from="Constructs/Button5" to="Node2D/GhostConstruct" method="_select_construct" binds= [4]]
-[connection signal="button_up" from="Constructs/Button6" to="Node2D/GhostConstruct" method="_select_construct" binds= [5]]
-[connection signal="button_up" from="Constructs/Button7" to="Node2D/GhostConstruct" method="_select_construct" binds= [6]]
-[connection signal="button_up" from="Constructs/Button8" to="Node2D/GhostConstruct" method="_select_construct" binds= [7]]
+[connection signal="button_up" from="Constructs/Button" to="Node2D/GhostConstruct" method="_select_construct" binds= [1]]
+[connection signal="button_up" from="Constructs/Button2" to="Node2D/GhostConstruct" method="_select_construct" binds= [2]]
+[connection signal="button_up" from="Constructs/Button3" to="Node2D/GhostConstruct" method="_select_construct" binds= [3]]
+[connection signal="button_up" from="Constructs/Button4" to="Node2D/GhostConstruct" method="_select_construct" binds= [4]]
+[connection signal="button_up" from="Constructs/Button5" to="Node2D/GhostConstruct" method="_select_construct" binds= [5]]
+[connection signal="button_up" from="Constructs/Button6" to="Node2D/GhostConstruct" method="_select_construct" binds= [6]]
+[connection signal="button_up" from="Constructs/Button7" to="Node2D/GhostConstruct" method="_select_construct" binds= [7]]
+[connection signal="button_up" from="Constructs/Button8" to="Node2D/GhostConstruct" method="_select_construct" binds= [8]]

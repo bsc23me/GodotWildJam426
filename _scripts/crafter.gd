@@ -24,7 +24,9 @@ var timeout
 func _ready() -> void:
 	if product_path:
 		product = load(product_path)
+		
 	timeout = delay
+	
 	for i in needed_ingredients.size():
 		ingredient_list.set(needed_ingredients[i],0)
 
@@ -33,20 +35,25 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if has_ingredients():
 		timeout -= delta
+	
 	if timeout <= 0:
 		if product:
+			# check if belt is full
 			var space_state = get_world_2d().direct_space_state
 			var ray = PhysicsRayQueryParameters2D.create(position, position + output_direction * 16)
 			var hit = space_state.intersect_ray(ray)
 			if hit.size() == 0:
+				# spawn the product
 				var p = product.instantiate()
 				p.position = position + output_direction * GridManager.GRID_SCALE
 				scene_root.add_child(p)
+				# reset progress
 				timeout = delay
 				for i in needed_ingredients.size():
 					ingredient_list.set(needed_ingredients[i],ingredient_list[needed_ingredients[i]] - 1)
 		elif resource_type != ResourceManager.ResourceType.DEFAULT:
 			ResourceManager.adjust_resource(resource_type, resource_amount)
+			# reset progress
 			timeout = delay
 			for i in needed_ingredients.size():
 					ingredient_list.set(needed_ingredients[i],ingredient_list[needed_ingredients[i]] - 1)
@@ -60,8 +67,6 @@ func has_ingredients() -> bool:
 func add_ingredient(type: int) -> void:
 	if ingredient_list.has(type):
 		ingredient_list.set(type,ingredient_list[type] + 1)
-	else:
-		ingredient_list.set(type,1)
 	
 func needs_ingredient(type: int) -> bool:
 	return needed_ingredients.has(type) and ingredient_list[type] < max_items

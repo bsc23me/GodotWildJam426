@@ -11,31 +11,15 @@ func _ready() -> void:
 	WOOD_AMOUNT = 0
 	STONE_AMOUNT = 0
 	MONEY_AMOUNT = 0
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	#adjust_money(1)
-	pass
-
-func adjust_resource(type:int, amount: int):
+func adjust_resource(type:ResourceType, amount: int):
 	match type:
-		1:
+		ResourceType.WOOD:
 			WOOD_AMOUNT += amount
-		2:
+		ResourceType.STONE:
 			STONE_AMOUNT += amount
-		3:
+		ResourceType.MONEY:
 			MONEY_AMOUNT += amount
-
-func adjust_wood(amount: int):
-	WOOD_AMOUNT += amount
-
-func adjust_stone(amount: int):
-	STONE_AMOUNT += amount
-
-func adjust_money(amount: int):
-	MONEY_AMOUNT += amount
 	
 func get_wood():
 	return WOOD_AMOUNT

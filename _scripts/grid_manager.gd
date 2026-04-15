@@ -5,15 +5,6 @@ var GRID_SCALE: int = 16
 var GRID_SNAP_SPEED: float = 0.5
 
 var tiles: Dictionary[Vector2i, TileConstruct] = {}
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func add_tile(position: Vector2i, tile: TileConstruct):
 	tiles.set(position, tile)
@@ -29,6 +20,7 @@ func has_tile(position: Vector2i):
 func get_tile(position: Vector2i):
 	return tiles[position]
 	
+## Returns a position which has been snapped to the nearest grid square
 func grid_position(position: Vector2):
 	position /= GRID_SCALE
 	position = floor(position)
