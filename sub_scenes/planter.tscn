@@ -8,6 +8,17 @@
 atlas = ExtResource("1_02sgj")
 region = Rect2(64, 64, 16, 16)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7domx"]
+bg_color = Color(0.40392157, 0.22352941, 0.19215687, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 4
+border_color = Color(0.1764706, 0.105882354, 0.11764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7g0r"]
+bg_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
+
 [node name="Planter" type="Sprite2D" unique_id=1052250189]
 texture = SubResource("AtlasTexture_468fr")
 script = ExtResource("2_02sgj")
@@ -26,9 +37,46 @@ node = NodePath("..")
 scaling = Vector2(1.1, 1.1)
 consider = true
 
-[node name="Panel" type="Panel" parent="Button" unique_id=880754155]
-layout_mode = 0
-offset_left = -12.0
-offset_top = -42.0
-offset_right = 28.0
-offset_bottom = -2.0
+[node name="Seeds" type="Node2D" parent="Button" unique_id=76363559]
+position = Vector2(8, 8)
+
+[node name="Panel" type="Panel" parent="Button/Seeds" unique_id=880754155]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7domx")
+
+[node name="Panel2" type="Panel" parent="Button/Seeds" unique_id=842767889]
+offset_left = -18.0
+offset_top = -48.0
+offset_right = 18.0
+offset_bottom = -15.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x7g0r")
+
+[node name="rose" type="Sprite2D" parent="Button/Seeds" unique_id=1748203662]
+position = Vector2(-10, -40)
+texture = ExtResource("1_02sgj")
+hframes = 6
+vframes = 6
+
+[node name="fire" type="Sprite2D" parent="Button/Seeds" unique_id=1178714529]
+position = Vector2(9, -40)
+texture = ExtResource("1_02sgj")
+hframes = 6
+vframes = 6
+frame = 6
+
+[node name="poison" type="Sprite2D" parent="Button/Seeds" unique_id=1872692658]
+position = Vector2(-10, -23)
+texture = ExtResource("1_02sgj")
+hframes = 6
+vframes = 6
+frame = 12
+
+[node name="mana" type="Sprite2D" parent="Button/Seeds" unique_id=1692116395]
+position = Vector2(9, -23)
+texture = ExtResource("1_02sgj")
+hframes = 6
+vframes = 6
+frame = 18
