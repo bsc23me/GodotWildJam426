@@ -6,8 +6,20 @@ extends Sprite2D
 @export var default_texture: Texture
 @export var tile_tex_offsets: Array[Vector2i]
 
+
 var scenes: Array[PackedScene]
 var selected_tile_type: TileConstruct.TileType
+var tile_cost : PackedVector2Array = [
+	Vector2(0,0),
+	Vector2(3,2),
+	Vector2(2,2),
+	Vector2(4,4),
+	Vector2(6,8),
+	Vector2(0,5),
+	Vector2(5,0),
+	Vector2(4,4),
+	Vector2(6,6),
+]
 
 var left_held: bool
 var right_held: bool
@@ -67,6 +79,7 @@ func _unhandled_input(event: InputEvent) -> void:
 # Called once per frame
 func _process(_delta: float) -> void:
 	if left_held and !GridManager.has_tile(position):
+
 		place_tile(selected_tile_type)
 	if right_held:
 		var pos = Vector2i(position)
@@ -75,6 +88,12 @@ func _process(_delta: float) -> void:
 	
 ## Place a construct based on the currently selected type
 func place_tile(tile_type):
+	if ResourceManager.WOOD_AMOUNT < tile_cost[selected_tile_type].x or ResourceManager.STONE_AMOUNT < tile_cost[selected_tile_type].y:
+		return
+	
+	ResourceManager.WOOD_AMOUNT -= int(tile_cost[tile_type].x)
+	ResourceManager.STONE_AMOUNT -= int(tile_cost[tile_type].y)
+	
 	var tile = scenes[tile_type].instantiate()
 	tile.position = position
 	tile.rotation = rotation

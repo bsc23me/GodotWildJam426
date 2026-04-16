@@ -32,6 +32,10 @@ window/stretch/scale_mode="integer"
 
 project/assembly_name="GodotWildJam426"
 
+[gui]
+
+theme/custom_font="uid://ttl8tdpy04xi"
+
 [input]
 
 building={
@@ -48,3 +52,4 @@ building={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"

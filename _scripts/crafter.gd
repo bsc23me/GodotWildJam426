@@ -1,7 +1,6 @@
 extends TileConstruct
 
 class_name Crafter
-
 ## Path to the subscene/root node/prefab to spawn
 @export var product_path: String
 var product
@@ -20,6 +19,15 @@ var ingredient_list: Dictionary[GameConstants.ItemType,int]
 @export var delay: float
 var timeout
 
+@export var start_at_command : bool
+var start : bool
+
+var tpe : GameConstants.ItemType = GameConstants.ItemType.POISON_PLANT
+var last_type : GameConstants.ItemType = GameConstants.ItemType.POISON_PLANT
+
+@export var scaling : Vector2 = Vector2(1,1.1)
+@export var duration : float = 0.1
+var original_scale : Vector2
 
 func _ready() -> void:
 	if product_path:
@@ -33,6 +41,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
+	if start_at_command:
+		if !start:
+			return
+	
 	if has_ingredients():
 		timeout -= delta
 	
@@ -44,8 +57,9 @@ func _physics_process(delta: float) -> void:
 			var hit = space_state.intersect_ray(ray)
 			if hit.size() == 0:
 				# spawn the product
-				var p = product.instantiate()
+				var p : Node2D = product.instantiate()
 				p.position = position + output_direction * GridManager.GRID_SCALE
+				p.find_child("ItemTransport").type = tpe
 				scene_root.add_child(p)
 				# reset progress
 				timeout = delay
@@ -59,13 +73,24 @@ func _physics_process(delta: float) -> void:
 					ingredient_list.set(needed_ingredients[i],ingredient_list[needed_ingredients[i]] - 1)
 	
 func has_ingredients() -> bool:
+	var n : int = 0
+	
 	for i in needed_ingredients.size():
 		if ingredient_list[needed_ingredients[i]] <= 0:
-			return false
+			n += 1
+			if n >= needed_ingredients.size():
+				return false
 	return true
 	
 func add_ingredient(type: int) -> void:
 	if ingredient_list.has(type):
+		
+		if last_type != tpe:
+			last_type = tpe
+			for i in needed_ingredients.size():
+				ingredient_list.set(needed_ingredients[i],0)
+			ingredient_list.set(type,ingredient_list[type] + 1)
+		
 		ingredient_list.set(type,ingredient_list[type] + 1)
 	
 func needs_ingredient(type: int) -> bool:

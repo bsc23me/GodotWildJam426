@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ctooftfwpgrxr" path="res://sprites/TilesAndItens.png" id="1_02sgj"]
 [ext_resource type="Script" uid="uid://cxtcarp8y08jk" path="res://_scripts/crafter.gd" id="2_02sgj"]
 [ext_resource type="Script" uid="uid://gcq7ll666m8l" path="res://_scripts/button.gd" id="3_7domx"]
+[ext_resource type="Script" uid="uid://e6k7emu6s1r8" path="res://_scripts/selector.gd" id="4_x7g0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
 atlas = ExtResource("1_02sgj")
@@ -24,6 +25,7 @@ texture = SubResource("AtlasTexture_468fr")
 script = ExtResource("2_02sgj")
 product_path = "res://sub_scenes/rose.tscn"
 delay = 1.0
+start_at_command = true
 metadata/_custom_type_script = "uid://da145ili7n1y2"
 
 [node name="Button" type="Button" parent="." unique_id=401807421 node_paths=PackedStringArray("node")]
@@ -31,6 +33,7 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
+mouse_filter = 1
 flat = true
 script = ExtResource("3_7domx")
 node = NodePath("..")
@@ -39,6 +42,11 @@ consider = true
 
 [node name="Seeds" type="Node2D" parent="Button" unique_id=76363559]
 position = Vector2(8, 8)
+
+[node name="selector" type="Node" parent="Button/Seeds" unique_id=1466730553 node_paths=PackedStringArray("buttons", "parent")]
+script = ExtResource("4_x7g0r")
+buttons = [NodePath("../rose/Button"), NodePath("../fire/Button"), NodePath("../poison/Button"), NodePath("../mana/Button")]
+parent = NodePath("../../..")
 
 [node name="Panel" type="Panel" parent="Button/Seeds" unique_id=880754155]
 offset_left = -20.0
@@ -60,12 +68,32 @@ texture = ExtResource("1_02sgj")
 hframes = 6
 vframes = 6
 
+[node name="Button" type="Button" parent="Button/Seeds/rose" unique_id=1930802212 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_7domx")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
+
 [node name="fire" type="Sprite2D" parent="Button/Seeds" unique_id=1178714529]
 position = Vector2(9, -40)
 texture = ExtResource("1_02sgj")
 hframes = 6
 vframes = 6
 frame = 6
+
+[node name="Button" type="Button" parent="Button/Seeds/fire" unique_id=759496591 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_7domx")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
 
 [node name="poison" type="Sprite2D" parent="Button/Seeds" unique_id=1872692658]
 position = Vector2(-10, -23)
@@ -74,9 +102,29 @@ hframes = 6
 vframes = 6
 frame = 12
 
+[node name="Button" type="Button" parent="Button/Seeds/poison" unique_id=2069336212 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_7domx")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
+
 [node name="mana" type="Sprite2D" parent="Button/Seeds" unique_id=1692116395]
 position = Vector2(9, -23)
 texture = ExtResource("1_02sgj")
 hframes = 6
 vframes = 6
 frame = 18
+
+[node name="Button" type="Button" parent="Button/Seeds/mana" unique_id=1758992292 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_7domx")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)

@@ -16,5 +16,5 @@ metadata/_custom_type_script = "uid://da145ili7n1y2"
 [node name="Node" type="Node" parent="." unique_id=30711781]
 script = ExtResource("3_0g50j")
 type = 2
-delay = 1.0
+delay = 2.0
 amount = 1

@@ -6,13 +6,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7wxf"]
 size = Vector2(14, 14)
 
-[node name="Rose" type="RigidBody2D" unique_id=471784506]
+[node name="plant" type="RigidBody2D" unique_id=471784506]
 z_index = 1
 gravity_scale = 0.0
+can_sleep = false
 
-[node name="ItemTransport" type="Node2D" parent="." unique_id=1874396418]
+[node name="ItemTransport" type="Node2D" parent="." unique_id=1874396418 node_paths=PackedStringArray("sprite")]
 script = ExtResource("2_wm63y")
 type = 1
+sprite = NodePath("../Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1717873686]
 shape = SubResource("RectangleShape2D_m7wxf")

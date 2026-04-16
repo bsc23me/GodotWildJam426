@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://4i4mme71dxo7" path="res://sprites/TreadmillOrange.png" id="6_a814b"]
 [ext_resource type="Script" uid="uid://dy20q5jijdivx" path="res://_scripts/resource_text.gd" id="8_hbc2u"]
 [ext_resource type="Script" uid="uid://gcq7ll666m8l" path="res://_scripts/button.gd" id="8_torvr"]
+[ext_resource type="Texture2D" uid="uid://b5opi8vf2ay5e" path="res://sprites/money.png" id="9_p5x2j"]
 [ext_resource type="Texture2D" uid="uid://uv654ivd4pgp" path="res://sprites/UiElements.png" id="10_8xkvn"]
+[ext_resource type="Texture2D" uid="uid://b6dj8hgv0urva" path="res://sprites/RecipePage.png" id="12_yvb8b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rf2cd"]
 atlas = ExtResource("5_p5x2j")
@@ -29,6 +31,14 @@ expand_margin_bottom = 2.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mcbk"]
 atlas = ExtResource("6_a814b")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xkvn"]
+font_size = 4
+font_color = Color(0.22526532, 0.2252653, 0.2252653, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p5x2j"]
+font_size = 8
+font_color = Color(0.9607843, 0.94509804, 0.9490196, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5crlr"]
 atlas = ExtResource("5_p5x2j")
@@ -58,6 +68,11 @@ region = Rect2(80, 64, 16, 16)
 atlas = ExtResource("5_p5x2j")
 region = Rect2(48, 80, 16, 16)
 
+[sub_resource type="LabelSettings" id="LabelSettings_yvb8b"]
+line_spacing = 0.0
+font_size = 8
+font_color = Color(0.59607846, 0.5803922, 0.54509807, 1)
+
 [node name="Node" type="Node" unique_id=1097373785]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1035034019]
@@ -70,7 +85,7 @@ tile_map_data = PackedByteArray("AAAlAAUAAQACAAUAAAAlAAsAAQACAAUAAAAlABAAAQACAAU
 tile_set = ExtResource("2_5crlr")
 
 [node name="GhostConstruct" type="Sprite2D" parent="Node2D" unique_id=1144518270 node_paths=PackedStringArray("scene_root")]
-position = Vector2(256, 264)
+position = Vector2(256, 265)
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_3mqji")
 script = ExtResource("2_x4av3")
@@ -99,26 +114,22 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=153047569]
-layout_mode = 0
-offset_right = 58.0
-offset_bottom = 41.0
-mouse_filter = 2
-
 [node name="Constructs" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1436227727]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -79.0
 offset_top = -29.0
+offset_right = -79.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=229434104]
+[node name="Button" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=229434104 node_paths=PackedStringArray("to_show")]
 layout_mode = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
@@ -126,8 +137,52 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 icon = SubResource("AtlasTexture_4mcbk")
 script = ExtResource("8_torvr")
+to_show = NodePath("Control")
 
-[node name="Button2" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1173531571]
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button" unique_id=1367076000]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button/Control" unique_id=6209757]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Belt"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button/Control" unique_id=1686877816]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "3    2"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button/Control" unique_id=958766320]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button/Control" unique_id=948173440]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1173531571 node_paths=PackedStringArray("to_show")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -138,8 +193,51 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
+to_show = NodePath("Control")
 
-[node name="Button3" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1800787938]
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button2" unique_id=1420051629]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button2/Control" unique_id=1697789248]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Pipe"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button2/Control" unique_id=834336789]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "2    2"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button2/Control" unique_id=317365149]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button2/Control" unique_id=774067511]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1800787938 node_paths=PackedStringArray("to_show")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -150,8 +248,52 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
+to_show = NodePath("Control")
 
-[node name="Button4" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1118686184]
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button3" unique_id=799667986]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button3/Control" unique_id=1217307719]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Planter"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button3/Control" unique_id=739509487]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "4    4"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button3/Control" unique_id=1275120755]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button3/Control" unique_id=787278118]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Button4" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1118686184 node_paths=PackedStringArray("to_show")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -162,8 +304,51 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
+to_show = NodePath("Control")
 
-[node name="Button5" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=3203714]
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button4" unique_id=1051377678]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button4/Control" unique_id=1218860857]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Siphon"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button4/Control" unique_id=1667234022]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "6    8"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button4/Control" unique_id=1563260009]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button4/Control" unique_id=392768898]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Button5" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=3203714 node_paths=PackedStringArray("to_show")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -174,8 +359,51 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
+to_show = NodePath("Control")
 
-[node name="Button6" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1774244246]
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button5" unique_id=2094385860]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button5/Control" unique_id=1416177635]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Rock Drill"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button5/Control" unique_id=1757053515]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "0    5"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button5/Control" unique_id=380019017]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button5/Control" unique_id=1155787687]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Button6" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1774244246 node_paths=PackedStringArray("to_show")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -186,8 +414,51 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
+to_show = NodePath("Control")
 
-[node name="Button7" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1072461668]
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button6" unique_id=938231148]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button6/Control" unique_id=64574147]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 17.0
+offset_right = 20.0
+offset_bottom = 25.0
+text = "Wood Cutter"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button6/Control" unique_id=1620482371]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "5    0"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button6/Control" unique_id=636237945]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button6/Control" unique_id=1182056547]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Button7" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1072461668 node_paths=PackedStringArray("to_show")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -198,8 +469,51 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
+to_show = NodePath("Control")
 
-[node name="Button8" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1919375379]
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button7" unique_id=542253197]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button7/Control" unique_id=789829917]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Crusher"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button7/Control" unique_id=764884596]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "4    4"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button7/Control" unique_id=1950652034]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button7/Control" unique_id=646384352]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Button8" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1919375379 node_paths=PackedStringArray("to_show")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -210,15 +524,62 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
+to_show = NodePath("Control")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button8" unique_id=974369302]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button8/Control" unique_id=856388388]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Brewing"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button8/Control" unique_id=1043169195]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "6    6"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button8/Control" unique_id=2143971611]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button8/Control" unique_id=611686686]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=761006918]
+z_index = 1
 layout_mode = 0
-offset_right = 99.0
-offset_bottom = 75.0
+offset_left = 272.0
+offset_top = 2.0
+offset_right = 319.0
+offset_bottom = 28.0
 theme_override_font_sizes/font_size = 6
-text = "  Wood: 9999
-  Stone: 9999
+text = " Wood: 9999
+ Stone: 9999
 Money: 9999"
+label_settings = SubResource("LabelSettings_yvb8b")
 script = ExtResource("8_hbc2u")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=1537086830]
@@ -240,17 +601,43 @@ axis_stretch_vertical = 1
 [node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=220123384]
 layout_mode = 0
 offset_left = 256.0
-offset_top = -48.0
+offset_top = -36.0
 offset_right = 320.0
-offset_bottom = 16.0
+offset_bottom = 28.0
 texture = ExtResource("10_8xkvn")
-region_rect = Rect2(48, 48, 48, 48)
+region_rect = Rect2(0, 48, 48, 48)
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control" unique_id=247674940]
+position = Vector2(264, 15)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control" unique_id=856682393]
+position = Vector2(264, 23)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Money3" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1760792792]
+position = Vector2(264, 6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="RecipeBook" type="Sprite2D" parent="." unique_id=2021537264]
+position = Vector2(237, 177)
+texture = ExtResource("12_yvb8b")
+hframes = 2
+frame = 1
 
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button" to="Node2D/GhostConstruct" method="_select_construct" binds= [1]]
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button2" to="Node2D/GhostConstruct" method="_select_construct" binds= [2]]
