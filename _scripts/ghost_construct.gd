@@ -11,12 +11,12 @@ var scenes: Array[PackedScene]
 var selected_tile_type: TileConstruct.TileType
 var tile_cost : PackedVector2Array = [
 	Vector2(0,0),
-	Vector2(3,2),
+	Vector2(4,2),
 	Vector2(2,2),
 	Vector2(4,4),
 	Vector2(6,8),
-	Vector2(0,5),
-	Vector2(5,0),
+	Vector2(0,3),
+	Vector2(3,0),
 	Vector2(4,4),
 	Vector2(6,6),
 ]
@@ -27,6 +27,8 @@ var right_held: bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#_select_construct(TileConstruct.TileType.BELT)
+	_select_construct(TileConstruct.TileType.DRILL)
+	
 	scenes.resize(tile_paths.size())
 	for i in tile_paths.size():
 		scenes[i] = load(tile_paths[i])
@@ -85,6 +87,7 @@ func _process(_delta: float) -> void:
 		var pos = Vector2i(position)
 		if GridManager.has_tile(pos):
 			GridManager.remove_tile(pos)
+			$AudioStreamPlayer.play()
 	
 ## Place a construct based on the currently selected type
 func place_tile(tile_type):

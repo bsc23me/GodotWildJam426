@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="GodotWildJam426"
+config/name="Alcherio"
 run/main_scene="uid://chatc284qh4gh"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://b1nvy1372sy0q"
+config/icon="uid://b1nvy1372sy0q"
+
+[audio]
+
+buses/default_bus_layout="uid://crpd1aveih2be"
 
 [autoload]
 
@@ -25,6 +30,7 @@ ResourceManager="*uid://dybjpysxj4pwq"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 

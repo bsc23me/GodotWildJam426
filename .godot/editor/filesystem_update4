@@ -1,0 +1,4 @@
+res://MainScene.tscn
+res://test_tile_set.tres
+res://_scripts/grid_manager.gd
+res://_scripts/ghost_construct.gd

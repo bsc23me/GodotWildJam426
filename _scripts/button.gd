@@ -5,6 +5,7 @@ extends Button
 @export var duration : float = 0.1
 
 @export var to_show: Control
+@export var audio : AudioStreamPlayer
 
 @export_group("Building mode")
 @export var consider : bool
@@ -22,6 +23,9 @@ func entered() -> void:
 	if consider:
 		if GridManager.building_mode:
 			return
+	
+	if audio:
+		audio.play()
 	
 	var tween : Tween = create_tween()
 	tween.tween_property(node, "scale", scaling, duration).set_trans(Tween.TRANS_CUBIC)

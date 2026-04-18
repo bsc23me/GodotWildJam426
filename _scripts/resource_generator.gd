@@ -6,6 +6,8 @@ extends Node
 
 var timeout
 
+signal sound
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timeout = delay
@@ -16,4 +18,5 @@ func _process(delta: float) -> void:
 	timeout -= delta
 	if timeout <= 0:
 		timeout = delay
+		sound.emit()
 		ResourceManager.adjust_resource(type, 1)

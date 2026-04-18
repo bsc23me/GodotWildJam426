@@ -8,8 +8,8 @@ var MONEY_AMOUNT: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	WOOD_AMOUNT = 5
-	STONE_AMOUNT = 5
+	WOOD_AMOUNT = 3
+	STONE_AMOUNT = 3
 	MONEY_AMOUNT = 0
 
 func adjust_resource(type:ResourceType, amount: int):

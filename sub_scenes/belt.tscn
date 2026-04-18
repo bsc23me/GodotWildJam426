@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4i4mme71dxo7" path="res://sprites/TreadmillOrange.png" id="1_nxa6v"]
 [ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_nxa6v"]
+[ext_resource type="AudioStream" uid="uid://bx3xss6wd2up2" path="res://audio/Belt Placed 2.mp3" id="3_6wagu"]
 
 [sub_resource type="Animation" id="Animation_nxa6v"]
 resource_name = "belt"
@@ -34,3 +35,7 @@ metadata/_custom_type_script = "uid://da145ili7n1y2"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=134148760]
 libraries/ = SubResource("AnimationLibrary_6wagu")
 autoplay = &"belt"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=167194938]
+stream = ExtResource("3_6wagu")
+autoplay = true

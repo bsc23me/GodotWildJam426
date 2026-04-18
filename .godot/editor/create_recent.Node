@@ -1,8 +1,9 @@
+Label
+AudioStreamPlayer
+Button
 AnimatedSprite2D
 Control
-Label
 Node
-Button
 Node2D
 Sprite2D
 Panel

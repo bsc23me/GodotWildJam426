@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://crtms5edr7pkj" path="res://icon.svg" id="1_3mqji"]
 [ext_resource type="Script" uid="uid://caerpow405td4" path="res://_scripts/grid_manager.gd" id="1_rpqi1"]
+[ext_resource type="AudioStream" uid="uid://dv5cuvly2dwju" path="res://audio/Removal.mp3" id="2_4mcbk"]
 [ext_resource type="TileSet" uid="uid://65cfy5y7i43k" path="res://test_tile_set.tres" id="2_5crlr"]
 [ext_resource type="Script" uid="uid://dogk0odjmsww5" path="res://_scripts/ghost_construct.gd" id="2_x4av3"]
 [ext_resource type="Texture2D" uid="uid://cl14b8ghnbe16" path="res://sprites/Belt_temp.png" id="4_rf2cd"]
@@ -12,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://b5opi8vf2ay5e" path="res://sprites/money.png" id="9_p5x2j"]
 [ext_resource type="Texture2D" uid="uid://uv654ivd4pgp" path="res://sprites/UiElements.png" id="10_8xkvn"]
 [ext_resource type="Texture2D" uid="uid://b6dj8hgv0urva" path="res://sprites/RecipePage.png" id="12_yvb8b"]
+[ext_resource type="Script" uid="uid://dgpgdtc4q4qx4" path="res://_scripts/music.gd" id="14_mctxq"]
+[ext_resource type="AudioStream" uid="uid://cq6yo0pfuicmj" path="res://audio/UI Hover.mp3" id="15_mctxq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rf2cd"]
 atlas = ExtResource("5_p5x2j")
@@ -73,6 +76,10 @@ line_spacing = 0.0
 font_size = 8
 font_color = Color(0.59607846, 0.5803922, 0.54509807, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_mctxq"]
+line_spacing = 0.0
+font_size = 8
+
 [node name="Node" type="Node" unique_id=1097373785]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1035034019]
@@ -94,6 +101,10 @@ tile_paths = Array[String](["", "res://sub_scenes/belt.tscn", "res://sub_scenes/
 tile_texture = SubResource("AtlasTexture_rf2cd")
 default_texture = ExtResource("4_rf2cd")
 tile_tex_offsets = Array[Vector2i]([Vector2i(0, 0), Vector2i(4, 0), Vector2i(4, 2), Vector2i(4, 4), Vector2i(3, 4), Vector2i(5, 5), Vector2i(4, 5), Vector2i(5, 4), Vector2i(3, 5)])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D/GhostConstruct" unique_id=1299156196]
+stream = ExtResource("2_4mcbk")
+volume_db = -8.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=1161836502]
 tile_map_data = PackedByteArray("AAAAAAAAAQAFAAUAAAAAAAEAAQAFAAUAAAAAAAIAAQAFAAUAAAAAAAMAAQAFAAUAAAAAAAQAAQAFAAUAAAAAAAUAAQAFAAUAAAAAAAYAAQAFAAUAAAAAAAcAAQAFAAUAAAAAAAgAAQAFAAUAAAAAAAkAAQAFAAUAAAAAAAoAAQAFAAUAAAAAAAsAAQAFAAUAAAAAAAwAAQAFAAUAAAAAAA0AAQAFAAUAAAAAAA4AAQAFAAUAAAAAAA8AAQAFAAUAAAAAABAAAQAFAAUAAAAAABEAAQAFAAUAAAAAABIAAQAFAAUAAAAAABMAAQAFAAUAAAAAABQAAQAFAAUAAAAAABUAAQAFAAUAAAAAABYAAQAFAAUAAAABAAAAAQAFAAUAAAABAAEAAQAFAAUAAAABAAIAAQAFAAUAAAABAAMAAQAFAAUAAAABAAQAAQAFAAUAAAABAAUAAQAFAAUAAAABAAYAAQAFAAUAAAABAAcAAQAFAAUAAAABAAgAAQAFAAUAAAABAAkAAQAFAAUAAAABAAoAAQAFAAUAAAABAAsAAQAFAAUAAAABAAwAAQAFAAUAAAABAA0AAQAFAAUAAAABAA4AAQAFAAUAAAABAA8AAQAFAAUAAAABABAAAQAFAAUAAAABABEAAQAFAAUAAAABABIAAQAFAAUAAAABABMAAQAFAAUAAAABABQAAQAFAAUAAAABABUAAQAFAAUAAAABABYAAQAFAAUAAAACAAAAAQAFAAUAAAACAAEAAQAFAAUAAAACABIAAQAFAAUAAAACABMAAQAFAAUAAAACABQAAQAFAAUAAAACABUAAQAFAAUAAAACABYAAQAFAAUAAAADAAAAAQAFAAUAAAADAAEAAQAFAAUAAAADABIAAQAFAAUAAAADABMAAQAFAAUAAAADABQAAQAFAAUAAAADABUAAQAFAAUAAAADABYAAQAFAAUAAAAEAAAAAQAFAAUAAAAEAAEAAQAFAAUAAAAEABIAAQAFAAUAAAAEABMAAQAFAAUAAAAEABQAAQAFAAUAAAAEABUAAQAFAAUAAAAEABYAAQAFAAUAAAAFAAAAAQAFAAUAAAAFAAEAAQAFAAUAAAAFABIAAQAFAAUAAAAFABMAAQAFAAUAAAAFABQAAQAFAAUAAAAFABUAAQAFAAUAAAAFABYAAQAFAAUAAAAGAAAAAQAFAAUAAAAGAAEAAQAFAAUAAAAGABIAAQAFAAUAAAAGABMAAQAFAAUAAAAGABQAAQAFAAUAAAAGABUAAQAFAAUAAAAGABYAAQAFAAUAAAAHAAAAAQAFAAUAAAAHAAEAAQAFAAUAAAAHABIAAQAFAAUAAAAHABMAAQAFAAUAAAAHABQAAQAFAAUAAAAHABUAAQAFAAUAAAAHABYAAQAFAAUAAAAIAAAAAQAFAAUAAAAIAAEAAQAFAAUAAAAIABIAAQAFAAUAAAAIABMAAQAFAAUAAAAIABQAAQAFAAUAAAAIABUAAQAFAAUAAAAIABYAAQAFAAUAAAAJAAAAAQAFAAUAAAAJAAEAAQAFAAUAAAAJABIAAQAFAAUAAAAJABMAAQAFAAUAAAAJABQAAQAFAAUAAAAJABUAAQAFAAUAAAAJABYAAQAFAAUAAAAKAAAAAQAFAAUAAAAKAAEAAQAFAAUAAAAKABIAAQAFAAUAAAAKABMAAQAFAAUAAAAKABQAAQAFAAUAAAAKABUAAQAFAAUAAAAKABYAAQAFAAUAAAALAAAAAQAFAAUAAAALAAEAAQAFAAUAAAALABIAAQAFAAUAAAALABMAAQAFAAUAAAALABQAAQAFAAUAAAALABUAAQAFAAUAAAALABYAAQAFAAUAAAAMAAAAAQAFAAUAAAAMAAEAAQAFAAUAAAAMABIAAQAFAAUAAAAMABMAAQAFAAUAAAAMABQAAQAFAAUAAAAMABUAAQAFAAUAAAAMABYAAQAFAAUAAAANAAAAAQAFAAUAAAANAAEAAQAFAAUAAAANABIAAQAFAAUAAAANABMAAQAFAAUAAAANABQAAQAFAAUAAAANABUAAQAFAAUAAAANABYAAQAFAAUAAAAOAAAAAQAFAAUAAAAOAAEAAQAFAAUAAAAOABIAAQAFAAUAAAAOABMAAQAFAAUAAAAOABQAAQAFAAUAAAAOABUAAQAFAAUAAAAOABYAAQAFAAUAAAAPAAAAAQAFAAUAAAAPAAEAAQAFAAUAAAAPABIAAQAFAAUAAAAPABMAAQAFAAUAAAAPABQAAQAFAAUAAAAPABUAAQAFAAUAAAAPABYAAQAFAAUAAAAQAAAAAQAFAAUAAAAQAAEAAQAFAAUAAAAQABIAAQAFAAUAAAAQABMAAQAFAAUAAAAQABQAAQAFAAUAAAAQABUAAQAFAAUAAAAQABYAAQAFAAUAAAARAAAAAQAFAAUAAAARAAEAAQAFAAUAAAARABIAAQAFAAUAAAARABMAAQAFAAUAAAARABQAAQAFAAUAAAARABUAAQAFAAUAAAARABYAAQAFAAUAAAASAAAAAQAFAAUAAAASAAEAAQAFAAUAAAASABIAAQAFAAUAAAASABMAAQAFAAUAAAASABQAAQAFAAUAAAASABUAAQAFAAUAAAASABYAAQAFAAUAAAATAAAAAQAFAAUAAAATAAEAAQAFAAUAAAATABIAAQAFAAUAAAATABMAAQAFAAUAAAATABQAAQAFAAUAAAATABUAAQAFAAUAAAATABYAAQAFAAUAAAAUAAAAAQAFAAUAAAAUAAEAAQAFAAUAAAAUABIAAQAFAAUAAAAUABMAAQAFAAUAAAAUABQAAQAFAAUAAAAUABUAAQAFAAUAAAAUABYAAQAFAAUAAAAVAAAAAQAFAAUAAAAVAAEAAQAFAAUAAAAVABIAAQAFAAUAAAAVABMAAQAFAAUAAAAVABQAAQAFAAUAAAAVABUAAQAFAAUAAAAVABYAAQAFAAUAAAAWAAAAAQAFAAUAAAAWAAEAAQAFAAUAAAAWABIAAQAFAAUAAAAWABMAAQAFAAUAAAAWABQAAQAFAAUAAAAWABUAAQAFAAUAAAAWABYAAQAFAAUAAAAXAAAAAQAFAAUAAAAXAAEAAQAFAAUAAAAXABIAAQAFAAUAAAAXABMAAQAFAAUAAAAXABQAAQAFAAUAAAAXABUAAQAFAAUAAAAXABYAAQAFAAUAAAAYAAAAAQAFAAUAAAAYAAEAAQAFAAUAAAAYABIAAQAFAAUAAAAYABMAAQAFAAUAAAAYABQAAQAFAAUAAAAYABUAAQAFAAUAAAAYABYAAQAFAAUAAAAZAAAAAQAFAAUAAAAZAAEAAQAFAAUAAAAZABIAAQAFAAUAAAAZABMAAQAFAAUAAAAZABQAAQAFAAUAAAAZABUAAQAFAAUAAAAZABYAAQAFAAUAAAAaAAAAAQAFAAUAAAAaAAEAAQAFAAUAAAAaABIAAQAFAAUAAAAaABMAAQAFAAUAAAAaABQAAQAFAAUAAAAaABUAAQAFAAUAAAAaABYAAQAFAAUAAAAbAAAAAQAFAAUAAAAbAAEAAQAFAAUAAAAbABIAAQAFAAUAAAAbABMAAQAFAAUAAAAbABQAAQAFAAUAAAAbABUAAQAFAAUAAAAbABYAAQAFAAUAAAAcAAAAAQAFAAUAAAAcAAEAAQAFAAUAAAAcABIAAQAFAAUAAAAcABMAAQAFAAUAAAAcABQAAQAFAAUAAAAcABUAAQAFAAUAAAAcABYAAQAFAAUAAAAdAAAAAQAFAAUAAAAdAAEAAQAFAAUAAAAdABIAAQAFAAUAAAAdABMAAQAFAAUAAAAdABQAAQAFAAUAAAAdABUAAQAFAAUAAAAdABYAAQAFAAUAAAAeAAAAAQAFAAUAAAAeAAEAAQAFAAUAAAAeABIAAQAFAAUAAAAeABMAAQAFAAUAAAAeABQAAQAFAAUAAAAeABUAAQAFAAUAAAAeABYAAQAFAAUAAAAfAAAAAQAFAAUAAAAfAAEAAQAFAAUAAAAfABIAAQAFAAUAAAAfABMAAQAFAAUAAAAfABQAAQAFAAUAAAAfABUAAQAFAAUAAAAfABYAAQAFAAUAAAAgAAAAAQAFAAUAAAAgAAEAAQAFAAUAAAAgABIAAQAFAAUAAAAgABMAAQAFAAUAAAAgABQAAQAFAAUAAAAgABUAAQAFAAUAAAAgABYAAQAFAAUAAAAhAAAAAQAFAAUAAAAhAAEAAQAFAAUAAAAhABIAAQAFAAUAAAAhABMAAQAFAAUAAAAhABQAAQAFAAUAAAAhABUAAQAFAAUAAAAhABYAAQAFAAUAAAAiAAAAAQAFAAUAAAAiAAEAAQAFAAUAAAAiABIAAQAFAAUAAAAiABMAAQAFAAUAAAAiABQAAQAFAAUAAAAiABUAAQAFAAUAAAAiABYAAQAFAAUAAAAjAAAAAQAFAAUAAAAjAAEAAQAFAAUAAAAjABIAAQAFAAUAAAAjABMAAQAFAAUAAAAjABQAAQAFAAUAAAAjABUAAQAFAAUAAAAjABYAAQAFAAUAAAAkAAAAAQAFAAUAAAAkAAEAAQAFAAUAAAAkABIAAQAFAAUAAAAkABMAAQAFAAUAAAAkABQAAQAFAAUAAAAkABUAAQAFAAUAAAAkABYAAQAFAAUAAAAlAAAAAQAFAAUAAAAlAAEAAQAFAAUAAAAlABIAAQAFAAUAAAAlABMAAQAFAAUAAAAlABQAAQAFAAUAAAAlABUAAQAFAAUAAAAlABYAAQAFAAUAAAAmAAAAAQAFAAUAAAAmAAEAAQAFAAUAAAAmAAIAAQAFAAUAAAAmAAMAAQAFAAUAAAAmAAQAAQAFAAUAAAAmAAUAAQAFAAUAAAAmAAYAAQAFAAUAAAAmAAcAAQAFAAUAAAAmAAgAAQAFAAUAAAAmAAkAAQAFAAUAAAAmAAoAAQAFAAUAAAAmAAsAAQAFAAUAAAAmAAwAAQAFAAUAAAAmAA0AAQAFAAUAAAAmAA4AAQAFAAUAAAAmAA8AAQAFAAUAAAAmABAAAQAFAAUAAAAmABEAAQAFAAUAAAAmABIAAQAFAAUAAAAmABMAAQAFAAUAAAAmABQAAQAFAAUAAAAmABUAAQAFAAUAAAAmABYAAQAFAAUAAAAnAAAAAQAFAAUAAAAnAAEAAQAFAAUAAAAnAAIAAQAFAAUAAAAnAAMAAQAFAAUAAAAnAAQAAQAFAAUAAAAnAAUAAQAFAAUAAAAnAAYAAQAFAAUAAAAnAAcAAQAFAAUAAAAnAAgAAQAFAAUAAAAnAAkAAQAFAAUAAAAnAAoAAQAFAAUAAAAnAAsAAQAFAAUAAAAnAAwAAQAFAAUAAAAnAA0AAQAFAAUAAAAnAA4AAQAFAAUAAAAnAA8AAQAFAAUAAAAnABAAAQAFAAUAAAAnABEAAQAFAAUAAAAnABIAAQAFAAUAAAAnABMAAQAFAAUAAAAnABQAAQAFAAUAAAAnABUAAQAFAAUAAAAnABYAAQAFAAUAAAA=")
@@ -129,7 +140,7 @@ grow_vertical = 0
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=229434104 node_paths=PackedStringArray("to_show")]
+[node name="Button" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=229434104 node_paths=PackedStringArray("to_show", "audio")]
 layout_mode = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
@@ -138,6 +149,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 icon = SubResource("AtlasTexture_4mcbk")
 script = ExtResource("8_torvr")
 to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button" unique_id=1367076000]
 visible = false
@@ -163,7 +175,7 @@ offset_left = -1.0
 offset_top = -17.0
 offset_right = 19.0
 offset_bottom = -9.0
-text = "3    2"
+text = "4    2"
 label_settings = SubResource("LabelSettings_p5x2j")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -181,7 +193,11 @@ hframes = 2
 vframes = 2
 frame = 1
 
-[node name="Button2" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1173531571 node_paths=PackedStringArray("to_show")]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button" unique_id=1830225155]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1173531571 node_paths=PackedStringArray("to_show", "audio")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
@@ -194,6 +210,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
 to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button2" unique_id=1420051629]
 visible = false
@@ -237,7 +254,11 @@ hframes = 2
 vframes = 2
 frame = 1
 
-[node name="Button3" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1800787938 node_paths=PackedStringArray("to_show")]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button2" unique_id=1081890958]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1800787938 node_paths=PackedStringArray("to_show", "audio")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -249,6 +270,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
 to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button3" unique_id=799667986]
 visible = false
@@ -292,7 +314,11 @@ hframes = 2
 vframes = 2
 frame = 1
 
-[node name="Button4" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1118686184 node_paths=PackedStringArray("to_show")]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button3" unique_id=2024263312]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button4" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1118686184 node_paths=PackedStringArray("to_show", "audio")]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
@@ -305,6 +331,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
 to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button4" unique_id=1051377678]
 visible = false
@@ -348,7 +375,11 @@ hframes = 2
 vframes = 2
 frame = 1
 
-[node name="Button5" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=3203714 node_paths=PackedStringArray("to_show")]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button4" unique_id=1750034347]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button5" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=3203714 node_paths=PackedStringArray("to_show", "audio")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -360,6 +391,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
 to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button5" unique_id=2094385860]
 visible = false
@@ -385,7 +417,7 @@ offset_left = -1.0
 offset_top = -17.0
 offset_right = 19.0
 offset_bottom = -9.0
-text = "0    5"
+text = "0    3"
 label_settings = SubResource("LabelSettings_p5x2j")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -403,7 +435,11 @@ hframes = 2
 vframes = 2
 frame = 1
 
-[node name="Button6" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1774244246 node_paths=PackedStringArray("to_show")]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button5" unique_id=248411430]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button6" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1774244246 node_paths=PackedStringArray("to_show", "audio")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -415,6 +451,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
 to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button6" unique_id=938231148]
 visible = false
@@ -440,7 +477,7 @@ offset_left = -1.0
 offset_top = -17.0
 offset_right = 19.0
 offset_bottom = -9.0
-text = "5    0"
+text = "3    0"
 label_settings = SubResource("LabelSettings_p5x2j")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -458,7 +495,11 @@ hframes = 2
 vframes = 2
 frame = 1
 
-[node name="Button7" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1072461668 node_paths=PackedStringArray("to_show")]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button6" unique_id=763373562]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button7" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1072461668 node_paths=PackedStringArray("to_show", "audio")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -470,6 +511,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
 to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button7" unique_id=542253197]
 visible = false
@@ -513,7 +555,11 @@ hframes = 2
 vframes = 2
 frame = 1
 
-[node name="Button8" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1919375379 node_paths=PackedStringArray("to_show")]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button7" unique_id=1491626310]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button8" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1919375379 node_paths=PackedStringArray("to_show", "audio")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -525,6 +571,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
 script = ExtResource("8_torvr")
 to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button8" unique_id=974369302]
 visible = false
@@ -567,6 +614,10 @@ texture = ExtResource("9_p5x2j")
 hframes = 2
 vframes = 2
 frame = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button8" unique_id=702414261]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=761006918]
 z_index = 1
@@ -639,6 +690,19 @@ texture = ExtResource("12_yvb8b")
 hframes = 2
 frame = 1
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=513518270]
+bus = &"music"
+script = ExtResource("14_mctxq")
+
+[node name="Label" type="Label" parent="." unique_id=1348737235]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 163.0
+offset_bottom = 15.0
+text = "Press \"SPACE\" to enter/get out of build mode
+Press \"R\" to rotate"
+label_settings = SubResource("LabelSettings_mctxq")
+
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button" to="Node2D/GhostConstruct" method="_select_construct" binds= [1]]
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button2" to="Node2D/GhostConstruct" method="_select_construct" binds= [2]]
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button3" to="Node2D/GhostConstruct" method="_select_construct" binds= [3]]
@@ -647,3 +711,4 @@ frame = 1
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button6" to="Node2D/GhostConstruct" method="_select_construct" binds= [6]]
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button7" to="Node2D/GhostConstruct" method="_select_construct" binds= [7]]
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button8" to="Node2D/GhostConstruct" method="_select_construct" binds= [8]]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

@@ -22,12 +22,16 @@ var timeout
 @export var start_at_command : bool
 var start : bool
 
+@export var squish : Button
+
 var tpe : GameConstants.ItemType = GameConstants.ItemType.POISON_PLANT
 var last_type : GameConstants.ItemType = GameConstants.ItemType.POISON_PLANT
 
 @export var scaling : Vector2 = Vector2(1,1.1)
 @export var duration : float = 0.1
 var original_scale : Vector2
+
+signal sound
 
 func _ready() -> void:
 	if product_path:
@@ -57,16 +61,21 @@ func _physics_process(delta: float) -> void:
 			var hit = space_state.intersect_ray(ray)
 			if hit.size() == 0:
 				# spawn the product
+				squish.entered()
+				sound.emit()
 				var p : Node2D = product.instantiate()
 				p.position = position + output_direction * GridManager.GRID_SCALE
 				p.find_child("ItemTransport").type = tpe
 				scene_root.add_child(p)
+				squish.exited()
 				# reset progress
 				timeout = delay
 				for i in needed_ingredients.size():
 					ingredient_list.set(needed_ingredients[i],ingredient_list[needed_ingredients[i]] - 1)
 		elif resource_type != ResourceManager.ResourceType.DEFAULT:
+			squish.entered()
 			ResourceManager.adjust_resource(resource_type, resource_amount)
+			squish.exited()
 			# reset progress
 			timeout = delay
 			for i in needed_ingredients.size():

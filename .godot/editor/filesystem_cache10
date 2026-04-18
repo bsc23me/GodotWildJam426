@@ -1,20 +1,39 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1776361263
+::res://::1776535097
+Banner.png::CompressedTexture2D::4239486855338911490::1776534825::1776534825::1::::<><><>0<>0<>6818150f6d08031e57b92b362d30ef31<>res://.godot/imported/Banner.png-67b2d039aec229fd05c272481839a1ee.ctex::
+default_bus_layout.tres::AudioBusLayout::5997245989797107466::1776534248::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::6006037216803395465::1776259882::1776259975::1::::<><><>0<>0<>8b4d4f549c65693d2fcadc0d419d50d5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-MainScene.tscn::PackedScene::5265321937751118559::1776361254::0::1::::<><><>0<>0<><>::uid://crtms5edr7pkj::::res://icon.svg<>uid://caerpow405td4::::res://_scripts/grid_manager.gd<>uid://65cfy5y7i43k::::res://test_tile_set.tres<>uid://dogk0odjmsww5::::res://_scripts/ghost_construct.gd<>uid://cl14b8ghnbe16::::res://sprites/Belt_temp.png<>uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://4i4mme71dxo7::::res://sprites/TreadmillOrange.png<>uid://dy20q5jijdivx::::res://_scripts/resource_text.gd<>uid://gcq7ll666m8l::::res://_scripts/button.gd<>uid://b5opi8vf2ay5e::::res://sprites/money.png<>uid://uv654ivd4pgp::::res://sprites/UiElements.png<>uid://b6dj8hgv0urva::::res://sprites/RecipePage.png
-test_tile_set.tres::TileSet::2237917156393952374::1776356297::0::1::::<><><>0<>0<><>::uid://dl2u7nppkltv5::::res://sprites/GrassTiles.png
-::res://_scripts/::1776360812
-button.gd::GDScript::426291030826392101::1776358393::0::1::::<>Button<><>0<>0<><>::
+MainScene.tscn::PackedScene::5265321937751118559::1776534924::0::1::::<><><>0<>0<><>::uid://crtms5edr7pkj::::res://icon.svg<>uid://caerpow405td4::::res://_scripts/grid_manager.gd<>uid://dv5cuvly2dwju::::res://audio/Removal.mp3<>uid://65cfy5y7i43k::::res://test_tile_set.tres<>uid://dogk0odjmsww5::::res://_scripts/ghost_construct.gd<>uid://cl14b8ghnbe16::::res://sprites/Belt_temp.png<>uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://4i4mme71dxo7::::res://sprites/TreadmillOrange.png<>uid://dy20q5jijdivx::::res://_scripts/resource_text.gd<>uid://gcq7ll666m8l::::res://_scripts/button.gd<>uid://b5opi8vf2ay5e::::res://sprites/money.png<>uid://uv654ivd4pgp::::res://sprites/UiElements.png<>uid://b6dj8hgv0urva::::res://sprites/RecipePage.png<>uid://dgpgdtc4q4qx4::::res://_scripts/music.gd<>uid://cq6yo0pfuicmj::::res://audio/UI Hover.mp3
+test_tile_set.tres::TileSet::2237917156393952374::1776534924::0::1::::<><><>0<>0<><>::uid://dl2u7nppkltv5::::res://sprites/GrassTiles.png
+::res://_scripts/::1776534420
+audio.gd::GDScript::2086309720586733673::1776533244::0::1::::<>AudioStreamPlayer<><>0<>0<><>::
+button.gd::GDScript::426291030826392101::1776533865::0::1::::<>Button<><>0<>0<><>::
 constants.gd::GDScript::7380359276382566441::1776270957::0::1::::GameConstants<>Node<><>0<>0<><>::
-crafter.gd::GDScript::6426530299975096424::1776360812::0::1::::Crafter<>TileConstruct<><>0<>0<><>::
-ghost_construct.gd::GDScript::8154944683698406034::1776358393::0::1::::<>Sprite2D<><>0<>0<><>::
-grid_manager.gd::GDScript::4782158624852880623::1776271552::0::1::::<>Node<><>0<>0<><>::
+crafter.gd::GDScript::6426530299975096424::1776532735::0::1::::Crafter<>TileConstruct<><>0<>0<><>::
+ghost_construct.gd::GDScript::8154944683698406034::1776534420::0::1::::<>Sprite2D<><>0<>0<><>::
+grid_manager.gd::GDScript::4782158624852880623::1776533767::0::1::::<>Node<><>0<>0<><>::
 item_transport.gd::GDScript::8056399813200750128::1776353437::0::1::::<>Node2D<><>0<>0<><>::
-resource_generator.gd::GDScript::3085378889429441694::1776259888::0::1::::<>Node<><>0<>0<><>::
-resource_manager.gd::GDScript::8846433205414694416::1776355475::0::1::::<>Node<><>0<>0<><>::
+music.gd::GDScript::7611731440930136947::1776534168::0::1::::<>AudioStreamPlayer<><>0<>0<><>::
+resource_generator.gd::GDScript::3085378889429441694::1776532904::0::1::::<>Node<><>0<>0<><>::
+resource_manager.gd::GDScript::8846433205414694416::1776531960::0::1::::<>Node<><>0<>0<><>::
 resource_text.gd::GDScript::8901080585252716649::1776358719::0::1::::<>Label<><>0<>0<><>::
 selector.gd::GDScript::345415629842530507::1776359384::0::1::::<>Node<><>0<>0<><>::
 TileConstruct.gd::GDScript::7214750676878669403::1776358393::0::1::::TileConstruct<>Sprite2D<><>0<>0<><>::
+::res://audio/::1776532849
+Belt Placed 2.mp3::AudioStreamMP3::4059996293919349105::1776532848::1776532848::1::::<><><>0<>0<>ae98b5bb528558b78d3d09db4bc24c1c<>res://.godot/imported/Belt Placed 2.mp3-d6129258b02c9bd48d80182a79a6c15f.mp3str::
+GodotWildJam1.2.mp3::AudioStreamMP3::4572007308738166339::1776532848::1776532849::1::::<><><>0<>0<>d979ffb7eed0ec2a7686032f00a2b038<>res://.godot/imported/GodotWildJam1.2.mp3-95ad31f2643fb88d11027428ea509ba4.mp3str::
+GodotWildJam2.mp3::AudioStreamMP3::1804009596492461045::1776532848::1776532849::1::::<><><>0<>0<>21df0eac2f79cb03f69b41470edd81fd<>res://.godot/imported/GodotWildJam2.mp3-aca75a13834fbfbbf2940c6f1e618f3b.mp3str::
+Machine Placed1.1.mp3::AudioStreamMP3::7352280616971963512::1776532848::1776532848::1::::<><><>0<>0<>5351f7b6b3bc06fa6d25dd1319c06904<>res://.godot/imported/Machine Placed1.1.mp3-02e55b232395459e1467ddf0abe565a5.mp3str::
+Plant Crushed.mp3::AudioStreamMP3::4922624051117085769::1776532848::1776532848::1::::<><><>0<>0<>bee9cbf0028c380aafce2485a902adb2<>res://.godot/imported/Plant Crushed.mp3-8be1fb923c4fa30e5c793a6d23eee3da.mp3str::
+Plant Grown.mp3::AudioStreamMP3::8250816464403900920::1776532848::1776532848::1::::<><><>0<>0<>7454fc8bf077501fc752177260ecf742<>res://.godot/imported/Plant Grown.mp3-6ed70baa669cf99f00fce58b4210d152.mp3str::
+Potion Brewed.mp3::AudioStreamMP3::4392041447282747775::1776532848::1776532849::1::::<><><>0<>0<>0423d4d379c6720ab3288bf2c9411605<>res://.godot/imported/Potion Brewed.mp3-5cdd12b3b04d88ad62ce19b83b8a1003.mp3str::
+Removal.mp3::AudioStreamMP3::8695317371073283878::1776532848::1776532849::1::::<><><>0<>0<>819e4e85f84d0393bf4fac033bc17df1<>res://.godot/imported/Removal.mp3-e4d46730e0d5278172bf59c1127717bc.mp3str::
+Stone Mined.mp3::AudioStreamMP3::4367219902089026208::1776532848::1776532849::1::::<><><>0<>0<>d3fd47305a343b7f09e5f5961591448f<>res://.godot/imported/Stone Mined.mp3-c944e61bcff80e0126d39dfad2591d26.mp3str::
+UI Hover Bop.mp3::AudioStreamMP3::8476585442047209847::1776532848::1776532849::1::::<><><>0<>0<>53b7e683788914e9bdd597c1a3dea247<>res://.godot/imported/UI Hover Bop.mp3-2f2fe8407069167f28babd6592280325.mp3str::
+UI Hover.mp3::AudioStreamMP3::5961342121421677833::1776532848::1776532849::1::::<><><>0<>0<>92f5529e607aea61ec95b3f918cf0888<>res://.godot/imported/UI Hover.mp3-666d45827d75f737af123fea2fe4e635.mp3str::
+UI Pressed.mp3::AudioStreamMP3::9145836933035640455::1776532848::1776532849::1::::<><><>0<>0<>82403fec69ce0dce53bafd7fa8b381d5<>res://.godot/imported/UI Pressed.mp3-b67aba6805e8b6d274394348aef1fb2e.mp3str::
+Wind.mp3::AudioStreamMP3::5863668827247911525::1776532848::1776532849::1::::<><><>0<>0<>3f975c1c744154d95e1daebe6b5a2b35<>res://.godot/imported/Wind.mp3-358a361c9b84406f23e895d183f1932a.mp3str::
+Wood Cut 1.mp3::AudioStreamMP3::337885505316889254::1776532848::1776532849::1::::<><><>0<>0<>060d46bfcd3d92766bd2952d351044be<>res://.godot/imported/Wood Cut 1.mp3-2a55fe531dcc465ecaad3e39ae18da5b.mp3str::
 ::res://Resources/::1776356313
 Ventura.ttf::FontFile::1373539027861730034::1776356151::1776356313::1::::<><><>0<>0<>5ff4ad7c29c1021ca3af61132be9cb83<>res://.godot/imported/Ventura.ttf-9974ea34adbb068e2be2cdb49d558080.fontdata::
 ::res://sprites/::1776361100
@@ -32,15 +51,15 @@ TilesAndItens.png::CompressedTexture2D::6136190658621464707::1776269188::1776269
 TreadmillGrey.png::CompressedTexture2D::3934088084903005021::1776259888::1776259975::1::::<><><>0<>0<>a9a45dbb2f6c8e1a9b61e572c77bbe29<>res://.godot/imported/TreadmillGrey.png-6f8cedae5a33bc2b19afc101f15ca78f.ctex::
 TreadmillOrange.png::CompressedTexture2D::2053774347800746256::1776259888::1776259975::1::::<><><>0<>0<>37d4b969d6adf472537e5b2c9ba97014<>res://.godot/imported/TreadmillOrange.png-6252a471058e1c9705ae17a32232359a.ctex::
 UiElements.png::CompressedTexture2D::1449066142683710031::1776263765::1776263766::1::::<><><>0<>0<>a9117c43c4bff571f3073568da012d46<>res://.godot/imported/UiElements.png-d3a5531e91371c8d6fb849b44cdeb7d8.ctex::
-::res://sub_scenes/::1776359990
-belt.tscn::PackedScene::2428926926857640155::1776265631::0::1::::<><><>0<>0<><>::uid://4i4mme71dxo7::::res://sprites/TreadmillOrange.png<>uid://da145ili7n1y2::::res://_scripts/TileConstruct.gd
-brewery.tscn::PackedScene::830031884743322270::1776359493::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://cxtcarp8y08jk::::res://_scripts/crafter.gd
+::res://sub_scenes/::1776533415
+belt.tscn::PackedScene::2428926926857640155::1776533037::0::1::::<><><>0<>0<><>::uid://4i4mme71dxo7::::res://sprites/TreadmillOrange.png<>uid://da145ili7n1y2::::res://_scripts/TileConstruct.gd<>uid://bx3xss6wd2up2::::res://audio/Belt Placed 2.mp3
+brewery.tscn::PackedScene::830031884743322270::1776533415::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://cxtcarp8y08jk::::res://_scripts/crafter.gd<>uid://gcq7ll666m8l::::res://_scripts/button.gd<>uid://4yvhma3vmbm4::::res://_scripts/audio.gd<>uid://b3tsjs1rs0gr4::::res://audio/Potion Brewed.mp3<>uid://dc0q8tv3s5e53::::res://audio/Machine Placed1.1.mp3
 construct.tscn::PackedScene::573086046284264416::1776359990::0::1::::<><><>0<>0<><>::uid://b67h1euloh623::::res://sprites/TilesAndItems.png<>uid://da145ili7n1y2::::res://_scripts/TileConstruct.gd
-drill.tscn::PackedScene::6726022276383170323::1776359033::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://da145ili7n1y2::::res://_scripts/TileConstruct.gd<>uid://bj7t0e5p1du27::::res://_scripts/resource_generator.gd
+drill.tscn::PackedScene::6726022276383170323::1776533310::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://da145ili7n1y2::::res://_scripts/TileConstruct.gd<>uid://bj7t0e5p1du27::::res://_scripts/resource_generator.gd<>uid://dc0q8tv3s5e53::::res://audio/Machine Placed1.1.mp3
 pipe.tscn::PackedScene::7609196974905168577::1776265631::0::1::::<><><>0<>0<><>::uid://b67h1euloh623::::res://sprites/TilesAndItems.png<>uid://da145ili7n1y2::::res://_scripts/TileConstruct.gd
-planter.tscn::PackedScene::6610640007868824722::1776359388::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://cxtcarp8y08jk::::res://_scripts/crafter.gd<>uid://gcq7ll666m8l::::res://_scripts/button.gd<>uid://e6k7emu6s1r8::::res://_scripts/selector.gd
-plant_processor.tscn::PackedScene::3502194129097216534::1776353127::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://cxtcarp8y08jk::::res://_scripts/crafter.gd
+planter.tscn::PackedScene::6610640007868824722::1776533310::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://cxtcarp8y08jk::::res://_scripts/crafter.gd<>uid://gcq7ll666m8l::::res://_scripts/button.gd<>uid://e6k7emu6s1r8::::res://_scripts/selector.gd<>uid://dc0q8tv3s5e53::::res://audio/Machine Placed1.1.mp3<>uid://dps00hoe6jpae::::res://audio/Plant Grown.mp3<>uid://4yvhma3vmbm4::::res://_scripts/audio.gd
+plant_processor.tscn::PackedScene::3502194129097216534::1776533415::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://cxtcarp8y08jk::::res://_scripts/crafter.gd<>uid://gcq7ll666m8l::::res://_scripts/button.gd<>uid://dc0q8tv3s5e53::::res://audio/Machine Placed1.1.mp3<>uid://cces5tfb33hi4::::res://audio/Plant Crushed.mp3<>uid://4yvhma3vmbm4::::res://_scripts/audio.gd
 rose.tscn::PackedScene::1808579030101213737::1776352549::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://dm1ty0ofd1al1::::res://_scripts/item_transport.gd
 rose_powder.tscn::PackedScene::1682727466691651156::1776353065::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://dm1ty0ofd1al1::::res://_scripts/item_transport.gd
 siphon.tscn::PackedScene::8365262954973558113::1776268198::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://da145ili7n1y2::::res://_scripts/TileConstruct.gd
-wood_cutter.tscn::PackedScene::6608924423989812279::1776359033::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://da145ili7n1y2::::res://_scripts/TileConstruct.gd<>uid://bj7t0e5p1du27::::res://_scripts/resource_generator.gd
+wood_cutter.tscn::PackedScene::6608924423989812279::1776533310::0::1::::<><><>0<>0<><>::uid://ctooftfwpgrxr::::res://sprites/TilesAndItens.png<>uid://da145ili7n1y2::::res://_scripts/TileConstruct.gd<>uid://bj7t0e5p1du27::::res://_scripts/resource_generator.gd<>uid://dc0q8tv3s5e53::::res://audio/Machine Placed1.1.mp3

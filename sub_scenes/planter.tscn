@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://cxtcarp8y08jk" path="res://_scripts/crafter.gd" id="2_02sgj"]
 [ext_resource type="Script" uid="uid://gcq7ll666m8l" path="res://_scripts/button.gd" id="3_7domx"]
 [ext_resource type="Script" uid="uid://e6k7emu6s1r8" path="res://_scripts/selector.gd" id="4_x7g0r"]
+[ext_resource type="AudioStream" uid="uid://dc0q8tv3s5e53" path="res://audio/Machine Placed1.1.mp3" id="5_ytff6"]
+[ext_resource type="AudioStream" uid="uid://dps00hoe6jpae" path="res://audio/Plant Grown.mp3" id="6_13j50"]
+[ext_resource type="Script" uid="uid://4yvhma3vmbm4" path="res://_scripts/audio.gd" id="7_sondw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
 atlas = ExtResource("1_02sgj")
@@ -20,12 +23,13 @@ border_color = Color(0.1764706, 0.105882354, 0.11764706, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7g0r"]
 bg_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
 
-[node name="Planter" type="Sprite2D" unique_id=1052250189]
+[node name="Planter" type="Sprite2D" unique_id=1052250189 node_paths=PackedStringArray("squish")]
 texture = SubResource("AtlasTexture_468fr")
 script = ExtResource("2_02sgj")
 product_path = "res://sub_scenes/rose.tscn"
 delay = 1.0
 start_at_command = true
+squish = NodePath("Button")
 metadata/_custom_type_script = "uid://da145ili7n1y2"
 
 [node name="Button" type="Button" parent="." unique_id=401807421 node_paths=PackedStringArray("node")]
@@ -33,7 +37,7 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
-mouse_filter = 1
+mouse_filter = 2
 flat = true
 script = ExtResource("3_7domx")
 node = NodePath("..")
@@ -128,3 +132,14 @@ flat = true
 script = ExtResource("3_7domx")
 node = NodePath("..")
 scaling = Vector2(1.2, 1.2)
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1609864849]
+stream = ExtResource("5_ytff6")
+volume_db = -10.0
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=898454413]
+stream = ExtResource("6_13j50")
+volume_db = 5.0
+script = ExtResource("7_sondw")
+start_at = 0.7
