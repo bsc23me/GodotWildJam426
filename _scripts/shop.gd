@@ -21,8 +21,11 @@ func _input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	for i in price_labels.size():
-		price_labels[i].text = price_msgs[i] + ""
+	var t = 0
+	for i in Constants.UPGRADES.keys():
+		price_labels[t].text = price_msgs[t]+"\n%9d%11d" % [prices[Constants.UPGRADES[i] - 1],prices[Constants.UPGRADES[i] - 1]]
+		t += 1
+	price_labels[0].text = price_msgs[0]+"\n%9d" % prices[Constants.UPGRADES[TileConstruct.TileType.BELT] - 1]
 	pass
 
 func toggle_shop_window():
@@ -35,15 +38,28 @@ func toggle_shop_window():
 
 func _upgrade(type: int) -> void:
 	# ADD PRICES 25, 100, 500, 2000
+	var p = prices[Constants.UPGRADES[type]-1]
 	match type:
+		TileConstruct.TileType.BELT:
+			sell_potions(p,
+				[Constants.ItemType.SPEED_POTION])
 		TileConstruct.TileType.PLANTER:
-			if(ResourceManager.POTION_AMOUNTS[Constants.ItemType.SPEED_POTION] > prices[Constants.UPGRADES[type]-1]
-			and ResourceManager.POTION_AMOUNTS[Constants.ItemType.LOVE_POTION] > prices[Constants.UPGRADES[type]-1]):
-				Constants.UPGRADES.set(type,Constants.UPGRADES[type] + 1)
-				ResourceManager.POTION_AMOUNTS.set(
-					ResourceManager.POTION_AMOUNTS[Constants.ItemType.SPEED_POTION],
-					ResourceManager.POTION_AMOUNTS[Constants.ItemType.SPEED_POTION] - prices[Constants.UPGRADES[type]-1])
-				ResourceManager.POTION_AMOUNTS.set(
-					ResourceManager.POTION_AMOUNTS[Constants.ItemType.LOVE_POTION],
-					ResourceManager.POTION_AMOUNTS[Constants.ItemType.LOVE_POTION] - prices[Constants.UPGRADES[type]-1])
+			sell_potions(p,
+				[Constants.ItemType.SPEED_POTION,
+				Constants.ItemType.LOVE_POTION])
+		TileConstruct.TileType.PLANT_PROCESSOR:
+			sell_potions(p,
+				[Constants.ItemType.SPEED_POTION,
+				Constants.ItemType.EXPLOSIVE_POTION])
+		
+	Constants.UPGRADES.set(type,Constants.UPGRADES[type] + 1)
 	pass # Replace with function body.
+
+func sell_potions(amount: int, potions: Array[Constants.ItemType]):
+	var enough = true
+	for i in potions.size():
+		if !ResourceManager.has_potions(potions[i], amount):
+			enough = false
+	if enough:
+		for i in potions.size():
+			ResourceManager.adjust_potions(potions[i],-amount)

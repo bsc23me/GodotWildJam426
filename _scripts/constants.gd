@@ -2,7 +2,7 @@ extends Node
 
 class_name GameConstants
 
-var DEBUG_MODE = true
+var DEBUG_MODE = false
 
 var UPGRADES: Dictionary[TileConstruct.TileType,int] = {
 	TileConstruct.TileType.BELT:1,

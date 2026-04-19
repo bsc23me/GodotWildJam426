@@ -13,7 +13,8 @@ func _ready() -> void:
 	STONE_AMOUNT = 9999 if Constants.DEBUG_MODE else 3
 	MONEY_AMOUNT = 9999 if Constants.DEBUG_MODE else 0
 	for i in 8:
-		POTION_AMOUNTS.set(i+9, 0)
+		var amt = 999 if Constants.DEBUG_MODE else 0
+		POTION_AMOUNTS.set(i+9, amt)
 
 func adjust_resource(type:ResourceType, amount: int):
 	match type:
@@ -38,3 +39,6 @@ func get_stone():
 
 func get_money():
 	return MONEY_AMOUNT
+
+func has_potions(type: Constants.ItemType, amount: int) -> bool:
+	return POTION_AMOUNTS[type] > amount
