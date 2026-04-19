@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b6dj8hgv0urva" path="res://sprites/RecipePage.png" id="12_yvb8b"]
 [ext_resource type="Script" uid="uid://dgpgdtc4q4qx4" path="res://_scripts/music.gd" id="14_mctxq"]
 [ext_resource type="AudioStream" uid="uid://cq6yo0pfuicmj" path="res://audio/UI Hover.mp3" id="15_mctxq"]
+[ext_resource type="Script" uid="uid://cp3vx5cqsfl1p" path="res://_scripts/recipe_book.gd" id="15_nm5af"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rf2cd"]
 atlas = ExtResource("5_p5x2j")
@@ -73,6 +74,11 @@ region = Rect2(48, 80, 16, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yvb8b"]
 line_spacing = 0.0
+font_size = 8
+font_color = Color(0.59607846, 0.5803922, 0.54509807, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nm5af"]
+line_spacing = 2.0
 font_size = 8
 font_color = Color(0.59607846, 0.5803922, 0.54509807, 1)
 
@@ -622,9 +628,9 @@ volume_db = -15.0
 [node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=761006918]
 z_index = 1
 layout_mode = 0
-offset_left = 272.0
+offset_left = 266.0
 offset_top = 2.0
-offset_right = 319.0
+offset_right = 313.0
 offset_bottom = 28.0
 theme_override_font_sizes/font_size = 6
 text = " Wood: 9999
@@ -632,6 +638,39 @@ text = " Wood: 9999
 Money: 9999"
 label_settings = SubResource("LabelSettings_yvb8b")
 script = ExtResource("8_hbc2u")
+label_type = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control" unique_id=1794855320]
+z_index = 1
+layout_mode = 0
+offset_left = 262.0
+offset_top = 28.0
+offset_right = 309.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 6
+text = ": 9999
+: 9999
+: 9999
+: 9999"
+label_settings = SubResource("LabelSettings_nm5af")
+script = ExtResource("8_hbc2u")
+label_type = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control" unique_id=547948023]
+z_index = 1
+layout_mode = 0
+offset_left = 292.0
+offset_top = 28.0
+offset_right = 339.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 6
+text = ": 9999
+: 9999
+: 9999
+: 9999"
+label_settings = SubResource("LabelSettings_nm5af")
+script = ExtResource("8_hbc2u")
+label_type = 3
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=1537086830]
 visible = false
@@ -651,10 +690,9 @@ axis_stretch_vertical = 1
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=220123384]
 layout_mode = 0
-offset_left = 256.0
-offset_top = -36.0
+offset_left = 248.0
 offset_right = 320.0
-offset_bottom = 28.0
+offset_bottom = 72.0
 texture = ExtResource("10_8xkvn")
 region_rect = Rect2(0, 48, 48, 48)
 patch_margin_left = 16
@@ -665,30 +703,112 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
 [node name="Money" type="Sprite2D" parent="CanvasLayer/Control" unique_id=247674940]
-position = Vector2(264, 15)
+position = Vector2(258, 15)
 texture = ExtResource("9_p5x2j")
 hframes = 2
 vframes = 2
 
 [node name="Money2" type="Sprite2D" parent="CanvasLayer/Control" unique_id=856682393]
-position = Vector2(264, 23)
+position = Vector2(258, 23)
 texture = ExtResource("9_p5x2j")
 hframes = 2
 vframes = 2
 frame = 1
 
 [node name="Money3" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1760792792]
-position = Vector2(264, 6)
+position = Vector2(258, 6)
 texture = ExtResource("9_p5x2j")
 hframes = 2
 vframes = 2
 frame = 2
+
+[node name="Money4" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1819848275]
+position = Vector2(258, 33)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 3
+
+[node name="Money5" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1604450035]
+position = Vector2(258, 43)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 9
+
+[node name="Money6" type="Sprite2D" parent="CanvasLayer/Control" unique_id=2034517254]
+position = Vector2(258, 53)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 15
+
+[node name="Money7" type="Sprite2D" parent="CanvasLayer/Control" unique_id=613896308]
+position = Vector2(258, 63)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 21
+
+[node name="Money8" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1949310910]
+position = Vector2(288, 33)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 11
+
+[node name="Money9" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1998381657]
+position = Vector2(288, 43)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 5
+
+[node name="Money10" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1557602688]
+position = Vector2(288, 53)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 17
+
+[node name="Money11" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1358112655]
+position = Vector2(288, 63)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 23
+
+[node name="Shop" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1846293314]
+position = Vector2(241, 8)
+texture = ExtResource("10_8xkvn")
+hframes = 8
+vframes = 6
+frame = 30
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Shop" unique_id=13933589]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("8_torvr")
+scaling = Vector2(1.2, 1.2)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=1466715294]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 162.0
+offset_top = 129.0
+offset_right = 320.0
+offset_bottom = 184.0
 
 [node name="RecipeBook" type="Sprite2D" parent="." unique_id=2021537264]
 position = Vector2(237, 177)
 texture = ExtResource("12_yvb8b")
 hframes = 2
 frame = 1
+script = ExtResource("15_nm5af")
+move_location = Vector2(237, 135)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=513518270]
 bus = &"music"
@@ -711,4 +831,6 @@ label_settings = SubResource("LabelSettings_mctxq")
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button6" to="Node2D/GhostConstruct" method="_select_construct" binds= [6]]
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button7" to="Node2D/GhostConstruct" method="_select_construct" binds= [7]]
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button8" to="Node2D/GhostConstruct" method="_select_construct" binds= [8]]
+[connection signal="mouse_entered" from="CanvasLayer/Control/Panel" to="RecipeBook" method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/Panel" to="RecipeBook" method="_on_panel_mouse_exited"]
 [connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

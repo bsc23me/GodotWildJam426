@@ -15,9 +15,10 @@ region = Rect2(80, 64, 16, 16)
 texture = SubResource("AtlasTexture_468fr")
 script = ExtResource("2_h70mr")
 product_path = "res://sub_scenes/rose_powder.tscn"
+one_to_one = true
 needed_ingredients = Array[int]([4, 1, 2, 3])
 max_items = 1
-delay = 1.0
+delay = 10.0
 squish = NodePath("Button")
 metadata/_custom_type_script = "uid://da145ili7n1y2"
 

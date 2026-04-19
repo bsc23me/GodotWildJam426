@@ -27,7 +27,7 @@ bg_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
 texture = SubResource("AtlasTexture_468fr")
 script = ExtResource("2_02sgj")
 product_path = "res://sub_scenes/rose.tscn"
-delay = 1.0
+delay = 30.0
 start_at_command = true
 squish = NodePath("Button")
 metadata/_custom_type_script = "uid://da145ili7n1y2"
@@ -44,35 +44,38 @@ node = NodePath("..")
 scaling = Vector2(1.1, 1.1)
 consider = true
 
-[node name="Seeds" type="Node2D" parent="Button" unique_id=76363559]
+[node name="Products" type="Node2D" parent="Button" unique_id=76363559]
 position = Vector2(8, 8)
 
-[node name="selector" type="Node" parent="Button/Seeds" unique_id=1466730553 node_paths=PackedStringArray("buttons", "parent")]
+[node name="selector" type="Node" parent="Button/Products" unique_id=1466730553 node_paths=PackedStringArray("buttons", "parent")]
 script = ExtResource("4_x7g0r")
 buttons = [NodePath("../rose/Button"), NodePath("../fire/Button"), NodePath("../poison/Button"), NodePath("../mana/Button")]
 parent = NodePath("../../..")
+products = Array[int]([1, 2, 4, 3])
 
-[node name="Panel" type="Panel" parent="Button/Seeds" unique_id=880754155]
+[node name="Panel" type="Panel" parent="Button/Products" unique_id=880754155]
 offset_left = -20.0
 offset_top = -50.0
 offset_right = 20.0
 offset_bottom = -10.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7domx")
+metadata/_edit_use_anchors_ = true
 
-[node name="Panel2" type="Panel" parent="Button/Seeds" unique_id=842767889]
+[node name="Panel2" type="Panel" parent="Button/Products" unique_id=842767889]
 offset_left = -18.0
 offset_top = -48.0
 offset_right = 18.0
 offset_bottom = -15.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x7g0r")
+metadata/_edit_use_anchors_ = true
 
-[node name="rose" type="Sprite2D" parent="Button/Seeds" unique_id=1748203662]
+[node name="rose" type="Sprite2D" parent="Button/Products" unique_id=1748203662]
 position = Vector2(-10, -40)
 texture = ExtResource("1_02sgj")
 hframes = 6
 vframes = 6
 
-[node name="Button" type="Button" parent="Button/Seeds/rose" unique_id=1930802212 node_paths=PackedStringArray("node")]
+[node name="Button" type="Button" parent="Button/Products/rose" unique_id=1930802212 node_paths=PackedStringArray("node")]
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
@@ -81,15 +84,16 @@ flat = true
 script = ExtResource("3_7domx")
 node = NodePath("..")
 scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
 
-[node name="fire" type="Sprite2D" parent="Button/Seeds" unique_id=1178714529]
+[node name="fire" type="Sprite2D" parent="Button/Products" unique_id=1178714529]
 position = Vector2(9, -40)
 texture = ExtResource("1_02sgj")
 hframes = 6
 vframes = 6
 frame = 6
 
-[node name="Button" type="Button" parent="Button/Seeds/fire" unique_id=759496591 node_paths=PackedStringArray("node")]
+[node name="Button" type="Button" parent="Button/Products/fire" unique_id=759496591 node_paths=PackedStringArray("node")]
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
@@ -98,15 +102,16 @@ flat = true
 script = ExtResource("3_7domx")
 node = NodePath("..")
 scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
 
-[node name="poison" type="Sprite2D" parent="Button/Seeds" unique_id=1872692658]
+[node name="poison" type="Sprite2D" parent="Button/Products" unique_id=1872692658]
 position = Vector2(-10, -23)
 texture = ExtResource("1_02sgj")
 hframes = 6
 vframes = 6
 frame = 12
 
-[node name="Button" type="Button" parent="Button/Seeds/poison" unique_id=2069336212 node_paths=PackedStringArray("node")]
+[node name="Button" type="Button" parent="Button/Products/poison" unique_id=2069336212 node_paths=PackedStringArray("node")]
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
@@ -115,15 +120,16 @@ flat = true
 script = ExtResource("3_7domx")
 node = NodePath("..")
 scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
 
-[node name="mana" type="Sprite2D" parent="Button/Seeds" unique_id=1692116395]
+[node name="mana" type="Sprite2D" parent="Button/Products" unique_id=1692116395]
 position = Vector2(9, -23)
 texture = ExtResource("1_02sgj")
 hframes = 6
 vframes = 6
 frame = 18
 
-[node name="Button" type="Button" parent="Button/Seeds/mana" unique_id=1758992292 node_paths=PackedStringArray("node")]
+[node name="Button" type="Button" parent="Button/Products/mana" unique_id=1758992292 node_paths=PackedStringArray("node")]
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
@@ -132,6 +138,7 @@ flat = true
 script = ExtResource("3_7domx")
 node = NodePath("..")
 scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1609864849]
 stream = ExtResource("5_ytff6")

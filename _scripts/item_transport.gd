@@ -27,7 +27,8 @@ func _physics_process(_delta: float) -> void:
 		if tile is Crafter:
 			if tile.needs_ingredient(type):
 				tile.add_ingredient(type)
-				tile.tpe = transfer_type()
+				if tile.one_to_one:
+					tile.tpe = transfer_type()
 				p.queue_free()
 
 func transfer_type() -> GameConstants.ItemType:

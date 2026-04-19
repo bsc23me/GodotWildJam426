@@ -5,16 +5,28 @@
 [ext_resource type="Script" uid="uid://gcq7ll666m8l" path="res://_scripts/button.gd" id="3_ro2rj"]
 [ext_resource type="Script" uid="uid://4yvhma3vmbm4" path="res://_scripts/audio.gd" id="4_b80oq"]
 [ext_resource type="AudioStream" uid="uid://b3tsjs1rs0gr4" path="res://audio/Potion Brewed.mp3" id="4_p12yk"]
+[ext_resource type="Script" uid="uid://e6k7emu6s1r8" path="res://_scripts/selector.gd" id="4_tcuix"]
 [ext_resource type="AudioStream" uid="uid://dc0q8tv3s5e53" path="res://audio/Machine Placed1.1.mp3" id="6_qqok8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
 atlas = ExtResource("1_lt7jh")
 region = Rect2(48, 80, 16, 16)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ubd2"]
+bg_color = Color(0.40392157, 0.22352941, 0.19215687, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 4
+border_color = Color(0.1764706, 0.105882354, 0.11764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtrts"]
+bg_color = Color(0.56078434, 0.3372549, 0.23137255, 1)
+
 [node name="Brewery" type="Sprite2D" unique_id=1765083466 node_paths=PackedStringArray("squish")]
 texture = SubResource("AtlasTexture_468fr")
 script = ExtResource("2_lt7jh")
-resource_type = 3
+resource_type = 4
 resource_amount = 10
 needed_ingredients = Array[int]([8, 6, 7, 5])
 max_items = 999999
@@ -31,6 +43,175 @@ mouse_filter = 2
 flat = true
 script = ExtResource("3_ro2rj")
 node = NodePath("..")
+
+[node name="Products" type="Node2D" parent="Button" unique_id=1368967806]
+position = Vector2(8, 8)
+
+[node name="selector" type="Node" parent="Button/Products" unique_id=1504934830 node_paths=PackedStringArray("buttons", "parent")]
+script = ExtResource("4_tcuix")
+buttons = [NodePath("../rose/Button"), NodePath("../fire/Button"), NodePath("../poison/Button"), NodePath("../mana/Button"), NodePath("../love/Button"), NodePath("../antidote/Button"), NodePath("../speed/Button"), NodePath("../explosive/Button")]
+parent = NodePath("../../..")
+products = Array[int]([9, 10, 11, 12, 13, 14, 15, 16])
+
+[node name="Panel" type="Panel" parent="Button/Products" unique_id=1710665587]
+offset_left = -40.0
+offset_top = -50.0
+offset_right = 40.0
+offset_bottom = -10.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ubd2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="Button/Products" unique_id=402563560]
+offset_left = -38.0
+offset_top = -48.0
+offset_right = 38.0
+offset_bottom = -15.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qtrts")
+metadata/_edit_use_anchors_ = true
+
+[node name="rose" type="Sprite2D" parent="Button/Products" unique_id=1077419297]
+position = Vector2(-29, -40)
+texture = ExtResource("1_lt7jh")
+hframes = 6
+vframes = 6
+frame = 3
+
+[node name="Button" type="Button" parent="Button/Products/rose" unique_id=9005909 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_ro2rj")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
+
+[node name="fire" type="Sprite2D" parent="Button/Products" unique_id=1355625152]
+position = Vector2(-10, -40)
+texture = ExtResource("1_lt7jh")
+hframes = 6
+vframes = 6
+frame = 9
+
+[node name="Button" type="Button" parent="Button/Products/fire" unique_id=1977988188 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_ro2rj")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
+
+[node name="poison" type="Sprite2D" parent="Button/Products" unique_id=2142793074]
+position = Vector2(-29, -23)
+texture = ExtResource("1_lt7jh")
+hframes = 6
+vframes = 6
+frame = 15
+
+[node name="Button" type="Button" parent="Button/Products/poison" unique_id=1245897522 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_ro2rj")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
+
+[node name="mana" type="Sprite2D" parent="Button/Products" unique_id=906063014]
+position = Vector2(-10, -23)
+texture = ExtResource("1_lt7jh")
+hframes = 6
+vframes = 6
+frame = 21
+
+[node name="Button" type="Button" parent="Button/Products/mana" unique_id=1279763851 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_ro2rj")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
+
+[node name="love" type="Sprite2D" parent="Button/Products" unique_id=1446281998]
+position = Vector2(9, -40)
+texture = ExtResource("1_lt7jh")
+hframes = 6
+vframes = 6
+frame = 11
+
+[node name="Button" type="Button" parent="Button/Products/love" unique_id=917583139 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_ro2rj")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
+
+[node name="antidote" type="Sprite2D" parent="Button/Products" unique_id=2035530141]
+position = Vector2(28, -40)
+texture = ExtResource("1_lt7jh")
+hframes = 6
+vframes = 6
+frame = 5
+
+[node name="Button" type="Button" parent="Button/Products/antidote" unique_id=722187928 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_ro2rj")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
+
+[node name="speed" type="Sprite2D" parent="Button/Products" unique_id=2079836627]
+position = Vector2(9, -23)
+texture = ExtResource("1_lt7jh")
+hframes = 6
+vframes = 6
+frame = 17
+
+[node name="Button" type="Button" parent="Button/Products/speed" unique_id=826324887 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_ro2rj")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
+
+[node name="explosive" type="Sprite2D" parent="Button/Products" unique_id=2053822893]
+position = Vector2(28, -23)
+texture = ExtResource("1_lt7jh")
+hframes = 6
+vframes = 6
+frame = 23
+
+[node name="Button" type="Button" parent="Button/Products/explosive" unique_id=1717678185 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("3_ro2rj")
+node = NodePath("..")
+scaling = Vector2(1.2, 1.2)
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1515287002]
 stream = ExtResource("4_p12yk")

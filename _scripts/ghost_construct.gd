@@ -45,12 +45,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		if !GridManager.building_mode:
 			GridManager.building_mode = true
 			show()
-			return
-		GridManager.building_mode = false
-		hide()
+			#return
+		else:
+			GridManager.building_mode = false
+			hide()
 	
-	if !GridManager.building_mode:
-		return
+	#if !GridManager.building_mode:
+		#return
 	
 	if event is InputEventMouseMotion:
 		position = GridManager.grid_position(event.position)
@@ -80,10 +81,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Called once per frame
 func _process(_delta: float) -> void:
-	if left_held and !GridManager.has_tile(position):
-
-		place_tile(selected_tile_type)
-	if right_held:
+	if left_held:
+		if GridManager.building_mode and !GridManager.has_tile(position):
+			place_tile(selected_tile_type)
+		elif !GridManager.building_mode and GridManager.has_tile(position):
+			var tile = GridManager.get_tile(position)
+			var products = tile.find_child("Products")
+			if products:
+				products.show()
+	if right_held and GridManager.building_mode:
 		var pos = Vector2i(position)
 		if GridManager.has_tile(pos):
 			GridManager.remove_tile(pos)
