@@ -4,6 +4,12 @@ class_name GameConstants
 
 var DEBUG_MODE = true
 
+var UPGRADES: Dictionary[TileConstruct.TileType,int] = {
+	TileConstruct.TileType.BELT:1,
+	TileConstruct.TileType.PLANTER:1,
+	TileConstruct.TileType.PLANT_PROCESSOR:1
+	}
+
 enum ItemType {
 DEFAULT, 
 ROSE_PLANT, 

@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://uv654ivd4pgp" path="res://sprites/UiElements.png" id="10_8xkvn"]
 [ext_resource type="Texture2D" uid="uid://b6dj8hgv0urva" path="res://sprites/RecipePage.png" id="12_yvb8b"]
 [ext_resource type="Script" uid="uid://dgpgdtc4q4qx4" path="res://_scripts/music.gd" id="14_mctxq"]
+[ext_resource type="Script" uid="uid://c5vtyn14o6qm6" path="res://_scripts/shop.gd" id="14_x0cd2"]
 [ext_resource type="AudioStream" uid="uid://cq6yo0pfuicmj" path="res://audio/UI Hover.mp3" id="15_mctxq"]
 [ext_resource type="Script" uid="uid://cp3vx5cqsfl1p" path="res://_scripts/recipe_book.gd" id="15_nm5af"]
 
@@ -81,6 +82,22 @@ font_color = Color(0.59607846, 0.5803922, 0.54509807, 1)
 line_spacing = 2.0
 font_size = 8
 font_color = Color(0.59607846, 0.5803922, 0.54509807, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0cd2"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x0cd2"]
+font_size = 8
+font_color = Color(0.59607846, 0.5803922, 0.54509807, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm5af"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s4c3"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(80, 64, 16, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mctxq"]
 line_spacing = 0.0
@@ -778,21 +795,24 @@ hframes = 6
 vframes = 6
 frame = 23
 
-[node name="Shop" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1846293314]
-position = Vector2(241, 8)
+[node name="Shop" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1846293314 node_paths=PackedStringArray("shop_window")]
+position = Vector2(239, 9)
 texture = ExtResource("10_8xkvn")
 hframes = 8
 vframes = 6
 frame = 30
+script = ExtResource("14_x0cd2")
+shop_window = NodePath("../NinePatchRect3")
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/Shop" unique_id=13933589]
+[node name="Button" type="Button" parent="CanvasLayer/Control/Shop" unique_id=13933589 node_paths=PackedStringArray("node")]
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
 flat = true
 script = ExtResource("8_torvr")
-scaling = Vector2(1.2, 1.2)
+node = NodePath("..")
+scaling = Vector2(1.125, 1.125)
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=1466715294]
 modulate = Color(1, 1, 1, 0)
@@ -801,6 +821,102 @@ offset_left = 162.0
 offset_top = 129.0
 offset_right = 320.0
 offset_bottom = 184.0
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=1039417146]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 70.0
+offset_top = 21.0
+offset_right = 245.0
+offset_bottom = 129.0
+texture = ExtResource("10_8xkvn")
+region_rect = Rect2(48, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/NinePatchRect3" unique_id=1730768684]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 172.0
+offset_bottom = 105.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/NinePatchRect3/GridContainer" unique_id=969192032]
+layout_mode = 2
+icon = SubResource("AtlasTexture_x0cd2")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button" unique_id=1515795119]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 91.0
+offset_bottom = 19.0
+text = "Belt Upgrade
+     : 25"
+label_settings = SubResource("LabelSettings_x0cd2")
+
+[node name="Pot1" type="Sprite2D" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button" unique_id=1458565943]
+position = Vector2(31, 16)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 17
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/NinePatchRect3/GridContainer" unique_id=177917357]
+layout_mode = 2
+icon = SubResource("AtlasTexture_nm5af")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button2" unique_id=1162461729]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 91.0
+offset_bottom = 19.0
+text = "Planter Upgrade
+     : 25       : 25"
+label_settings = SubResource("LabelSettings_x0cd2")
+
+[node name="Pot1" type="Sprite2D" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button2" unique_id=755208372]
+position = Vector2(31, 16)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 17
+
+[node name="Pot2" type="Sprite2D" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button2" unique_id=352267126]
+position = Vector2(58, 16)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 11
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/NinePatchRect3/GridContainer" unique_id=797888012]
+layout_mode = 2
+icon = SubResource("AtlasTexture_8s4c3")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button3" unique_id=2107367978]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 91.0
+offset_bottom = 19.0
+text = "Processor Upgrade
+     : 25      : 25"
+label_settings = SubResource("LabelSettings_x0cd2")
+
+[node name="Pot1" type="Sprite2D" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button3" unique_id=1022067876]
+position = Vector2(31, 16)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 17
+
+[node name="Pot2" type="Sprite2D" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button3" unique_id=969252569]
+position = Vector2(57, 16)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 23
 
 [node name="RecipeBook" type="Sprite2D" parent="." unique_id=2021537264]
 position = Vector2(237, 177)
@@ -831,6 +947,10 @@ label_settings = SubResource("LabelSettings_mctxq")
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button6" to="Node2D/GhostConstruct" method="_select_construct" binds= [6]]
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button7" to="Node2D/GhostConstruct" method="_select_construct" binds= [7]]
 [connection signal="button_up" from="CanvasLayer/Control/Constructs/Button8" to="Node2D/GhostConstruct" method="_select_construct" binds= [8]]
+[connection signal="button_up" from="CanvasLayer/Control/Shop/Button" to="CanvasLayer/Control/Shop" method="toggle_shop_window"]
 [connection signal="mouse_entered" from="CanvasLayer/Control/Panel" to="RecipeBook" method="_on_panel_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/Panel" to="RecipeBook" method="_on_panel_mouse_exited"]
+[connection signal="button_up" from="CanvasLayer/Control/NinePatchRect3/GridContainer/Button" to="CanvasLayer/Control/Shop" method="_upgrade" binds= [1]]
+[connection signal="button_up" from="CanvasLayer/Control/NinePatchRect3/GridContainer/Button2" to="CanvasLayer/Control/Shop" method="_upgrade" binds= [3]]
+[connection signal="button_up" from="CanvasLayer/Control/NinePatchRect3/GridContainer/Button3" to="CanvasLayer/Control/Shop" method="_upgrade" binds= [7]]
 [connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

@@ -72,6 +72,7 @@ func _physics_process(delta: float) -> void:
 				squish.exited()
 				# reset progress
 				timeout = 1.0 if Constants.DEBUG_MODE else delay
+				timeout *= 1.0 / Constants.UPGRADES[construct_type]
 				for i in needed_ingredients.size():
 					ingredient_list.set(needed_ingredients[i],ingredient_list[needed_ingredients[i]] - 1)
 		elif resource_type != ResourceManager.ResourceType.DEFAULT:
