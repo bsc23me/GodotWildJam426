@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://d2qd2k76ndd54"]
+
+[ext_resource type="Texture2D" uid="uid://4i4mme71dxo7" path="res://sprites/TreadmillOrange.png" id="1_drnva"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_151bi"]
+atlas = ExtResource("1_drnva")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygcu1"]
+atlas = ExtResource("1_drnva")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjrxa"]
+atlas = ExtResource("1_drnva")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yword"]
+atlas = ExtResource("1_drnva")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_151bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygcu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjrxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yword")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]

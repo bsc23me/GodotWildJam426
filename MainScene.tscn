@@ -1,15 +1,958 @@
-[gd_scene format=3 uid="uid://chatc284qh4gh"]
+[gd_scene format=4 uid="uid://chatc284qh4gh"]
 
 [ext_resource type="Texture2D" uid="uid://crtms5edr7pkj" path="res://icon.svg" id="1_3mqji"]
-[ext_resource type="Script" uid="uid://dogk0odjmsww5" path="res://_scripts/GhostConstruct.gd" id="2_x4av3"]
+[ext_resource type="Script" uid="uid://caerpow405td4" path="res://_scripts/grid_manager.gd" id="1_rpqi1"]
+[ext_resource type="AudioStream" uid="uid://dv5cuvly2dwju" path="res://audio/Removal.mp3" id="2_4mcbk"]
+[ext_resource type="TileSet" uid="uid://65cfy5y7i43k" path="res://test_tile_set.tres" id="2_5crlr"]
+[ext_resource type="Script" uid="uid://dogk0odjmsww5" path="res://_scripts/ghost_construct.gd" id="2_x4av3"]
+[ext_resource type="Texture2D" uid="uid://cl14b8ghnbe16" path="res://sprites/Belt_temp.png" id="4_rf2cd"]
+[ext_resource type="Texture2D" uid="uid://ctooftfwpgrxr" path="res://sprites/TilesAndItens.png" id="5_p5x2j"]
+[ext_resource type="Texture2D" uid="uid://4i4mme71dxo7" path="res://sprites/TreadmillOrange.png" id="6_a814b"]
+[ext_resource type="Script" uid="uid://dy20q5jijdivx" path="res://_scripts/resource_text.gd" id="8_hbc2u"]
+[ext_resource type="Script" uid="uid://gcq7ll666m8l" path="res://_scripts/button.gd" id="8_torvr"]
+[ext_resource type="Texture2D" uid="uid://b5opi8vf2ay5e" path="res://sprites/money.png" id="9_p5x2j"]
+[ext_resource type="Texture2D" uid="uid://uv654ivd4pgp" path="res://sprites/UiElements.png" id="10_8xkvn"]
+[ext_resource type="Texture2D" uid="uid://b6dj8hgv0urva" path="res://sprites/RecipePage.png" id="12_yvb8b"]
+[ext_resource type="Script" uid="uid://dgpgdtc4q4qx4" path="res://_scripts/music.gd" id="14_mctxq"]
+[ext_resource type="Script" uid="uid://c5vtyn14o6qm6" path="res://_scripts/shop.gd" id="14_x0cd2"]
+[ext_resource type="AudioStream" uid="uid://cq6yo0pfuicmj" path="res://audio/UI Hover.mp3" id="15_mctxq"]
+[ext_resource type="Script" uid="uid://cp3vx5cqsfl1p" path="res://_scripts/recipe_book.gd" id="15_nm5af"]
 
-[node name="Node2D" type="Node2D" unique_id=1288777129]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf2cd"]
+atlas = ExtResource("5_p5x2j")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1161836502]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbc2u"]
+bg_color = Color(0.69956815, 0.669409, 0.6232577, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 4
+border_color = Color(0.9597755, 0.9445628, 0.9497706, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
-[node name="GhostConstruct" type="Sprite2D" parent="." unique_id=1144518270 node_paths=PackedStringArray("scene_root")]
-position = Vector2(256, 264)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mcbk"]
+atlas = ExtResource("6_a814b")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8xkvn"]
+font_size = 4
+font_color = Color(0.22526532, 0.2252653, 0.2252653, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p5x2j"]
+font_size = 8
+font_color = Color(0.9607843, 0.94509804, 0.9490196, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5crlr"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbc2u"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_torvr"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xkvn"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(80, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5x2j"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvb8b"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(80, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hf6u"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yvb8b"]
+line_spacing = 0.0
+font_size = 8
+font_color = Color(0.59607846, 0.5803922, 0.54509807, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nm5af"]
+line_spacing = 2.0
+font_size = 8
+font_color = Color(0.59607846, 0.5803922, 0.54509807, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0cd2"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x0cd2"]
+font_size = 8
+font_color = Color(0.59607846, 0.5803922, 0.54509807, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm5af"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s4c3"]
+atlas = ExtResource("5_p5x2j")
+region = Rect2(80, 64, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mctxq"]
+line_spacing = 0.0
+font_size = 8
+
+[node name="Node" type="Node" unique_id=1097373785]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1035034019]
+
+[node name="GridManager" type="Node2D" parent="Node2D" unique_id=144078494]
+script = ExtResource("1_rpqi1")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Node2D" unique_id=1442376089]
+tile_map_data = PackedByteArray("AAAlAAUAAQACAAUAAAAlAAsAAQACAAUAAAAlABAAAQACAAUAAAADAAgAAQACAAUAAAAEAA8AAQACAAUAAAAEABAAAQACAAUAAAAFAAkAAQACAAUAAAAFAA4AAQACAAUAAAAGAAoAAQACAAUAAAAGAAwAAQACAAUAAAAGAA4AAQACAAUAAAAHAAsAAQACAAUAAAAHAA0AAQACAAUAAAAHAA8AAQACAAUAAAAIAAgAAQACAAUAAAAJAAgAAQACAAUAAAAJAAkAAQACAAUAAAAJAAwAAQACAAUAAAAKAAkAAQACAAUAAAAKAAwAAQACAAUAAAAKAA8AAQACAAUAAAALAAgAAQACAAUAAAAMABAAAQACAAUAAAANAAoAAQACAAUAAAANAAwAAQACAAUAAAANAA4AAQACAAUAAAANABAAAQACAAUAAAAOAAwAAQACAAUAAAAOAA4AAQACAAUAAAAOAA8AAQACAAUAAAAPAAMAAQACAAUAAAAPAAUAAQACAAUAAAAPAAoAAQACAAUAAAAPAAsAAQACAAUAAAAPAA0AAQACAAUAAAAQAAMAAQACAAUAAAAQAA0AAQACAAUAAAAQAA4AAQACAAUAAAARAA8AAQACAAUAAAASAAoAAQACAAUAAAASAA0AAQACAAUAAAASAA4AAQACAAUAAAATAAQAAQACAAUAAAATAAUAAQACAAUAAAATAAgAAQACAAUAAAATAA4AAQACAAUAAAATABAAAQACAAUAAAAUAAkAAQACAAUAAAAUABAAAQACAAUAAAAVAA4AAQACAAUAAAAWAA0AAQACAAUAAAAWAA8AAQACAAUAAAAXAAcAAQACAAUAAAAXAAwAAQACAAUAAAAYAAMAAQACAAUAAAAYAAcAAQACAAUAAAAYAA0AAQACAAUAAAAYABEAAQACAAUAAAAZAAYAAQACAAUAAAAZAAcAAQACAAUAAAAaAAYAAQACAAUAAAAaAAwAAQACAAUAAAAaAA8AAQACAAUAAAAaABEAAQACAAUAAAAbAAcAAQACAAUAAAAbAAsAAQACAAUAAAAbAAwAAQACAAUAAAAbAA0AAQACAAUAAAAcAAQAAQACAAUAAAAcAAYAAQACAAUAAAAcAA0AAQACAAUAAAAcAA8AAQACAAUAAAAcABAAAQACAAUAAAAdAAMAAQACAAUAAAAdAAcAAQACAAUAAAAdAAoAAQACAAUAAAAdAAsAAQACAAUAAAAdAA8AAQACAAUAAAAdABAAAQACAAUAAAAfAAkAAQACAAUAAAAfAAsAAQACAAUAAAAfAA0AAQACAAUAAAAgAAQAAQACAAUAAAAgAAUAAQACAAUAAAAgAAsAAQACAAUAAAAgAA0AAQACAAUAAAAgABEAAQACAAUAAAAhAAQAAQACAAUAAAAhAAUAAQACAAUAAAAhABEAAQACAAUAAAAjAAcAAQACAAUAAAAjAAsAAQACAAUAAAAjAA0AAQACAAUAAAAkAAYAAQACAAUAAAAkAAgAAQACAAUAAAAkAAwAAQACAAUAAAAkAA0AAQACAAUAAAAFABEAAQACAAUAAAAKABEAAQACAAUAAAAEAAIAAQACAAUAAAAFAAIAAQACAAUAAAAYAAIAAQACAAUAAAAZAAIAAQACAAUAAAAjAAIAAQACAAUAAAAkAAIAAQACAAUAAAACAAIAAQACAAUAAAACAAMAAQACAAUAAAACAAYAAQACAAUAAAACAAcAAQACAAUAAAACAAgAAQACAAUAAAACAAkAAQACAAUAAAACAAoAAQACAAUAAAACAAsAAQACAAUAAAACAAwAAQACAAUAAAACAA0AAQACAAUAAAACAA4AAQACAAUAAAACAA8AAQACAAUAAAACABAAAQACAAUAAAACABEAAQACAAUAAAADAAIAAQACAAUAAAADAAMAAQACAAUAAAADAAYAAQACAAUAAAADAAcAAQACAAUAAAADAAkAAQACAAUAAAADAAoAAQACAAUAAAADAAsAAQACAAUAAAADAAwAAQACAAUAAAADAA0AAQACAAUAAAADAA4AAQACAAUAAAADAA8AAQACAAUAAAADABAAAQACAAUAAAADABEAAQACAAUAAAAEAAMAAQACAAUAAAAEAAYAAQACAAUAAAAEAAcAAQACAAUAAAAEAAgAAQACAAUAAAAEAAkAAQACAAUAAAAEAAoAAQACAAUAAAAEAAsAAQACAAUAAAAEAAwAAQACAAUAAAAEAA0AAQACAAUAAAAEAA4AAQACAAUAAAAEABEAAQACAAUAAAAFAAMAAQACAAUAAAAFAAYAAQACAAUAAAAFAAcAAQACAAUAAAAFAAgAAQACAAUAAAAFAAoAAQACAAUAAAAFAAsAAQACAAUAAAAFAAwAAQACAAUAAAAFAA0AAQACAAUAAAAFAA8AAQACAAUAAAAFABAAAQACAAUAAAAGAAIAAQACAAUAAAAGAAMAAQACAAUAAAAGAAYAAQACAAUAAAAGAAcAAQACAAUAAAAGAAgAAQACAAUAAAAGAAkAAQACAAUAAAAGAAsAAQACAAUAAAAGAA0AAQACAAUAAAAGAA8AAQACAAUAAAAGABAAAQACAAUAAAAGABEAAQACAAUAAAAHAAIAAQACAAUAAAAHAAMAAQACAAUAAAAHAAYAAQACAAUAAAAHAAcAAQACAAUAAAAHAAgAAQACAAUAAAAHAAkAAQACAAUAAAAHAAoAAQACAAUAAAAHAAwAAQACAAUAAAAHAA4AAQACAAUAAAAHABAAAQACAAUAAAAHABEAAQACAAUAAAAIAAIAAQACAAUAAAAIAAMAAQACAAUAAAAIAAYAAQACAAUAAAAIAAcAAQACAAUAAAAIAAkAAQACAAUAAAAIAAoAAQACAAUAAAAIAAsAAQACAAUAAAAIAAwAAQACAAUAAAAIAA0AAQACAAUAAAAIAA4AAQACAAUAAAAIAA8AAQACAAUAAAAIABAAAQACAAUAAAAIABEAAQACAAUAAAAJAAIAAQACAAUAAAAJAAMAAQACAAUAAAAJAAYAAQACAAUAAAAJAAcAAQACAAUAAAAJAAoAAQACAAUAAAAJAAsAAQACAAUAAAAJAA0AAQACAAUAAAAJAA4AAQACAAUAAAAJAA8AAQACAAUAAAAJABAAAQACAAUAAAAJABEAAQACAAUAAAAKAAIAAQACAAUAAAAKAAMAAQACAAUAAAAKAAYAAQACAAUAAAAKAAcAAQACAAUAAAAKAAgAAQACAAUAAAAKAAoAAQACAAUAAAAKAAsAAQACAAUAAAAKAA0AAQACAAUAAAAKAA4AAQACAAUAAAAKABAAAQACAAUAAAALAAIAAQACAAUAAAALAAMAAQACAAUAAAALAAYAAQACAAUAAAALAAcAAQACAAUAAAALAAkAAQACAAUAAAALAAoAAQACAAUAAAALAAsAAQACAAUAAAALAAwAAQACAAUAAAALAA0AAQACAAUAAAALAA4AAQACAAUAAAALAA8AAQACAAUAAAALABAAAQACAAUAAAALABEAAQACAAUAAAAMAAIAAQACAAUAAAAMAAMAAQACAAUAAAAMAAYAAQACAAUAAAAMAAcAAQACAAUAAAAMAAgAAQACAAUAAAAMAAkAAQACAAUAAAAMAAoAAQACAAUAAAAMAAsAAQACAAUAAAAMAAwAAQACAAUAAAAMAA0AAQACAAUAAAAMAA4AAQACAAUAAAAMAA8AAQACAAUAAAAMABEAAQACAAUAAAANAAIAAQACAAUAAAANAAMAAQACAAUAAAANAAYAAQACAAUAAAANAAcAAQACAAUAAAANAAgAAQACAAUAAAANAAkAAQACAAUAAAANAAsAAQACAAUAAAANAA0AAQACAAUAAAANAA8AAQACAAUAAAANABEAAQACAAUAAAAOAAIAAQACAAUAAAAOAAMAAQACAAUAAAAOAAQAAQACAAUAAAAOAAUAAQACAAUAAAAOAAYAAQACAAUAAAAOAAcAAQACAAUAAAAOAAgAAQACAAUAAAAOAAkAAQACAAUAAAAOAAoAAQACAAUAAAAOAAsAAQACAAUAAAAOAA0AAQACAAUAAAAOABAAAQACAAUAAAAOABEAAQACAAUAAAAPAAIAAQACAAUAAAAPAAQAAQACAAUAAAAPAAYAAQACAAUAAAAPAAcAAQACAAUAAAAPAAgAAQACAAUAAAAPAAkAAQACAAUAAAAPAAwAAQACAAUAAAAPAA4AAQACAAUAAAAPAA8AAQACAAUAAAAPABAAAQACAAUAAAAPABEAAQACAAUAAAAQAAIAAQACAAUAAAAQAAQAAQACAAUAAAAQAAUAAQACAAUAAAAQAAYAAQACAAUAAAAQAAcAAQACAAUAAAAQAAgAAQACAAUAAAAQAAkAAQACAAUAAAAQAAoAAQACAAUAAAAQAAsAAQACAAUAAAAQAAwAAQACAAUAAAAQAA8AAQACAAUAAAAQABAAAQACAAUAAAAQABEAAQACAAUAAAARAAIAAQACAAUAAAARAAMAAQACAAUAAAARAAQAAQACAAUAAAARAAUAAQACAAUAAAARAAYAAQACAAUAAAARAAcAAQACAAUAAAARAAgAAQACAAUAAAARAAkAAQACAAUAAAARAAoAAQACAAUAAAARAAsAAQACAAUAAAARAAwAAQACAAUAAAARAA0AAQACAAUAAAARAA4AAQACAAUAAAARABAAAQACAAUAAAARABEAAQACAAUAAAASAAIAAQACAAUAAAASAAMAAQACAAUAAAASAAQAAQACAAUAAAASAAUAAQACAAUAAAASAAYAAQACAAUAAAASAAcAAQACAAUAAAASAAgAAQACAAUAAAASAAkAAQACAAUAAAASAAsAAQACAAUAAAASAAwAAQACAAUAAAASAA8AAQACAAUAAAASABAAAQACAAUAAAASABEAAQACAAUAAAATAAIAAQACAAUAAAATAAMAAQACAAUAAAATAAYAAQACAAUAAAATAAcAAQACAAUAAAATAAkAAQACAAUAAAATAAoAAQACAAUAAAATAAsAAQACAAUAAAATAAwAAQACAAUAAAATAA0AAQACAAUAAAATAA8AAQACAAUAAAATABEAAQACAAUAAAAUAAIAAQACAAUAAAAUAAMAAQACAAUAAAAUAAQAAQACAAUAAAAUAAUAAQACAAUAAAAUAAYAAQACAAUAAAAUAAcAAQACAAUAAAAUAAgAAQACAAUAAAAUAAoAAQACAAUAAAAUAAsAAQACAAUAAAAUAAwAAQACAAUAAAAUAA0AAQACAAUAAAAUAA4AAQACAAUAAAAUAA8AAQACAAUAAAAUABEAAQACAAUAAAAVAAIAAQACAAUAAAAVAAMAAQACAAUAAAAVAAQAAQACAAUAAAAVAAUAAQACAAUAAAAVAAYAAQACAAUAAAAVAAcAAQACAAUAAAAVAAgAAQACAAUAAAAVAAkAAQACAAUAAAAVAAoAAQACAAUAAAAVAAsAAQACAAUAAAAVAAwAAQACAAUAAAAVAA0AAQACAAUAAAAVAA8AAQACAAUAAAAVABAAAQACAAUAAAAVABEAAQACAAUAAAAWAAIAAQACAAUAAAAWAAMAAQACAAUAAAAWAAQAAQACAAUAAAAWAAUAAQACAAUAAAAWAAYAAQACAAUAAAAWAAcAAQACAAUAAAAWAAgAAQACAAUAAAAWAAkAAQACAAUAAAAWAAoAAQACAAUAAAAWAAsAAQACAAUAAAAWAAwAAQACAAUAAAAWAA4AAQACAAUAAAAWABAAAQACAAUAAAAWABEAAQACAAUAAAAXAAIAAQACAAUAAAAXAAMAAQACAAUAAAAXAAQAAQACAAUAAAAXAAUAAQACAAUAAAAXAAYAAQACAAUAAAAXAAgAAQACAAUAAAAXAAkAAQACAAUAAAAXAAoAAQACAAUAAAAXAAsAAQACAAUAAAAXAA0AAQACAAUAAAAXAA4AAQACAAUAAAAXAA8AAQACAAUAAAAXABAAAQACAAUAAAAXABEAAQACAAUAAAAYAAQAAQACAAUAAAAYAAUAAQACAAUAAAAYAAYAAQACAAUAAAAYAAgAAQACAAUAAAAYAAkAAQACAAUAAAAYAAoAAQACAAUAAAAYAAsAAQACAAUAAAAYAAwAAQACAAUAAAAYAA4AAQACAAUAAAAYAA8AAQACAAUAAAAYABAAAQACAAUAAAAZAAMAAQACAAUAAAAZAAQAAQACAAUAAAAZAAUAAQACAAUAAAAZAAgAAQACAAUAAAAZAAkAAQACAAUAAAAZAAoAAQACAAUAAAAZAAsAAQACAAUAAAAZAAwAAQACAAUAAAAZAA0AAQACAAUAAAAZAA4AAQACAAUAAAAZAA8AAQACAAUAAAAZABAAAQACAAUAAAAZABEAAQACAAUAAAAaAAIAAQACAAUAAAAaAAMAAQACAAUAAAAaAAQAAQACAAUAAAAaAAUAAQACAAUAAAAaAAcAAQACAAUAAAAaAAgAAQACAAUAAAAaAAkAAQACAAUAAAAaAAoAAQACAAUAAAAaAAsAAQACAAUAAAAaAA0AAQACAAUAAAAaAA4AAQACAAUAAAAaABAAAQACAAUAAAAbAAIAAQACAAUAAAAbAAMAAQACAAUAAAAbAAQAAQACAAUAAAAbAAUAAQACAAUAAAAbAAYAAQACAAUAAAAbAAgAAQACAAUAAAAbAAkAAQACAAUAAAAbAAoAAQACAAUAAAAbAA4AAQACAAUAAAAbAA8AAQACAAUAAAAbABAAAQACAAUAAAAbABEAAQACAAUAAAAcAAIAAQACAAUAAAAcAAMAAQACAAUAAAAcAAUAAQACAAUAAAAcAAcAAQACAAUAAAAcAAgAAQACAAUAAAAcAAkAAQACAAUAAAAcAAoAAQACAAUAAAAcAAsAAQACAAUAAAAcAAwAAQACAAUAAAAcAA4AAQACAAUAAAAcABEAAQACAAUAAAAdAAIAAQACAAUAAAAdAAQAAQACAAUAAAAdAAUAAQACAAUAAAAdAAYAAQACAAUAAAAdAAgAAQACAAUAAAAdAAkAAQACAAUAAAAdAAwAAQACAAUAAAAdAA0AAQACAAUAAAAdAA4AAQACAAUAAAAdABEAAQACAAUAAAAeAAIAAQACAAUAAAAeAAMAAQACAAUAAAAeAAQAAQACAAUAAAAeAAUAAQACAAUAAAAeAAYAAQACAAUAAAAeAAcAAQACAAUAAAAeAAgAAQACAAUAAAAeAAkAAQACAAUAAAAeAAoAAQACAAUAAAAeAAsAAQACAAUAAAAeAAwAAQACAAUAAAAeAA0AAQACAAUAAAAeAA4AAQACAAUAAAAeAA8AAQACAAUAAAAeABAAAQACAAUAAAAeABEAAQACAAUAAAAfAAIAAQACAAUAAAAfAAMAAQACAAUAAAAfAAQAAQACAAUAAAAfAAUAAQACAAUAAAAfAAYAAQACAAUAAAAfAAcAAQACAAUAAAAfAAgAAQACAAUAAAAfAAoAAQACAAUAAAAfAAwAAQACAAUAAAAfAA4AAQACAAUAAAAfAA8AAQACAAUAAAAfABAAAQACAAUAAAAfABEAAQACAAUAAAAgAAIAAQACAAUAAAAgAAMAAQACAAUAAAAgAAYAAQACAAUAAAAgAAcAAQACAAUAAAAgAAgAAQACAAUAAAAgAAkAAQACAAUAAAAgAAoAAQACAAUAAAAgAAwAAQACAAUAAAAgAA4AAQACAAUAAAAgAA8AAQACAAUAAAAgABAAAQACAAUAAAAhAAIAAQACAAUAAAAhAAMAAQACAAUAAAAhAAYAAQACAAUAAAAhAAcAAQACAAUAAAAhAAgAAQACAAUAAAAhAAkAAQACAAUAAAAhAAoAAQACAAUAAAAhAAsAAQACAAUAAAAhAAwAAQACAAUAAAAhAA0AAQACAAUAAAAhAA4AAQACAAUAAAAhAA8AAQACAAUAAAAhABAAAQACAAUAAAAiAAIAAQACAAUAAAAiAAMAAQACAAUAAAAiAAQAAQACAAUAAAAiAAUAAQACAAUAAAAiAAYAAQACAAUAAAAiAAcAAQACAAUAAAAiAAgAAQACAAUAAAAiAAkAAQACAAUAAAAiAAoAAQACAAUAAAAiAAsAAQACAAUAAAAiAAwAAQACAAUAAAAiAA0AAQACAAUAAAAiAA4AAQACAAUAAAAiAA8AAQACAAUAAAAiABAAAQACAAUAAAAiABEAAQACAAUAAAAjAAMAAQACAAUAAAAjAAQAAQACAAUAAAAjAAUAAQACAAUAAAAjAAYAAQACAAUAAAAjAAgAAQACAAUAAAAjAAkAAQACAAUAAAAjAAoAAQACAAUAAAAjAAwAAQACAAUAAAAjAA4AAQACAAUAAAAjAA8AAQACAAUAAAAjABAAAQACAAUAAAAjABEAAQACAAUAAAAkAAMAAQACAAUAAAAkAAQAAQACAAUAAAAkAAUAAQACAAUAAAAkAAcAAQACAAUAAAAkAAkAAQACAAUAAAAkAAoAAQACAAUAAAAkAAsAAQACAAUAAAAkAA4AAQACAAUAAAAkAA8AAQACAAUAAAAkABAAAQACAAUAAAAkABEAAQACAAUAAAAlAAIAAQACAAUAAAAlAAMAAQACAAUAAAAlAAQAAQACAAUAAAAlAAYAAQACAAUAAAAlAAcAAQACAAUAAAAlAAgAAQACAAUAAAAlAAkAAQACAAUAAAAlAAoAAQACAAUAAAAlAAwAAQACAAUAAAAlAA0AAQACAAUAAAAlAA4AAQACAAUAAAAlAA8AAQACAAUAAAAlABEAAQACAAUAAAACAAQAAQACAAUAAAACAAUAAQACAAUAAAADAAQAAQACAAUAAAADAAUAAQACAAUAAAAEAAQAAQACAAUAAAAEAAUAAQACAAUAAAAFAAQAAQACAAUAAAAFAAUAAQACAAUAAAAGAAQAAQACAAUAAAAGAAUAAQACAAUAAAAHAAQAAQACAAUAAAAHAAUAAQACAAUAAAAIAAQAAQACAAUAAAAIAAUAAQACAAUAAAAJAAQAAQACAAUAAAAJAAUAAQACAAUAAAAKAAQAAQACAAUAAAAKAAUAAQACAAUAAAALAAQAAQACAAUAAAALAAUAAQACAAUAAAAMAAQAAQACAAUAAAAMAAUAAQACAAUAAAANAAQAAQACAAUAAAANAAUAAQACAAUAAAA=")
+tile_set = ExtResource("2_5crlr")
+
+[node name="GhostConstruct" type="Sprite2D" parent="Node2D" unique_id=1144518270 node_paths=PackedStringArray("scene_root")]
+position = Vector2(256, 265)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_3mqji")
 script = ExtResource("2_x4av3")
 scene_root = NodePath("..")
-tile_node = "res://sub_scenes/construct.tscn"
+tile_paths = Array[String](["", "res://sub_scenes/belt.tscn", "res://sub_scenes/pipe.tscn", "res://sub_scenes/planter.tscn", "res://sub_scenes/siphon.tscn", "res://sub_scenes/drill.tscn", "res://sub_scenes/wood_cutter.tscn", "res://sub_scenes/plant_processor.tscn", "res://sub_scenes/brewery.tscn"])
+tile_texture = SubResource("AtlasTexture_rf2cd")
+default_texture = ExtResource("4_rf2cd")
+tile_tex_offsets = Array[Vector2i]([Vector2i(0, 0), Vector2i(4, 0), Vector2i(4, 2), Vector2i(4, 4), Vector2i(3, 4), Vector2i(5, 5), Vector2i(4, 5), Vector2i(5, 4), Vector2i(3, 5)])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D/GhostConstruct" unique_id=1299156196]
+stream = ExtResource("2_4mcbk")
+volume_db = -8.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Node2D" unique_id=1161836502]
+tile_map_data = PackedByteArray("AAAAAAAAAQAFAAUAAAAAAAEAAQAFAAUAAAAAAAIAAQAFAAUAAAAAAAMAAQAFAAUAAAAAAAQAAQAFAAUAAAAAAAUAAQAFAAUAAAAAAAYAAQAFAAUAAAAAAAcAAQAFAAUAAAAAAAgAAQAFAAUAAAAAAAkAAQAFAAUAAAAAAAoAAQAFAAUAAAAAAAsAAQAFAAUAAAAAAAwAAQAFAAUAAAAAAA0AAQAFAAUAAAAAAA4AAQAFAAUAAAAAAA8AAQAFAAUAAAAAABAAAQAFAAUAAAAAABEAAQAFAAUAAAAAABIAAQAFAAUAAAAAABMAAQAFAAUAAAAAABQAAQAFAAUAAAAAABUAAQAFAAUAAAAAABYAAQAFAAUAAAABAAAAAQAFAAUAAAABAAEAAQAFAAUAAAABAAIAAQAFAAUAAAABAAMAAQAFAAUAAAABAAQAAQAFAAUAAAABAAUAAQAFAAUAAAABAAYAAQAFAAUAAAABAAcAAQAFAAUAAAABAAgAAQAFAAUAAAABAAkAAQAFAAUAAAABAAoAAQAFAAUAAAABAAsAAQAFAAUAAAABAAwAAQAFAAUAAAABAA0AAQAFAAUAAAABAA4AAQAFAAUAAAABAA8AAQAFAAUAAAABABAAAQAFAAUAAAABABEAAQAFAAUAAAABABIAAQAFAAUAAAABABMAAQAFAAUAAAABABQAAQAFAAUAAAABABUAAQAFAAUAAAABABYAAQAFAAUAAAACAAAAAQAFAAUAAAACAAEAAQAFAAUAAAACABIAAQAFAAUAAAACABMAAQAFAAUAAAACABQAAQAFAAUAAAACABUAAQAFAAUAAAACABYAAQAFAAUAAAADAAAAAQAFAAUAAAADAAEAAQAFAAUAAAADABIAAQAFAAUAAAADABMAAQAFAAUAAAADABQAAQAFAAUAAAADABUAAQAFAAUAAAADABYAAQAFAAUAAAAEAAAAAQAFAAUAAAAEAAEAAQAFAAUAAAAEABIAAQAFAAUAAAAEABMAAQAFAAUAAAAEABQAAQAFAAUAAAAEABUAAQAFAAUAAAAEABYAAQAFAAUAAAAFAAAAAQAFAAUAAAAFAAEAAQAFAAUAAAAFABIAAQAFAAUAAAAFABMAAQAFAAUAAAAFABQAAQAFAAUAAAAFABUAAQAFAAUAAAAFABYAAQAFAAUAAAAGAAAAAQAFAAUAAAAGAAEAAQAFAAUAAAAGABIAAQAFAAUAAAAGABMAAQAFAAUAAAAGABQAAQAFAAUAAAAGABUAAQAFAAUAAAAGABYAAQAFAAUAAAAHAAAAAQAFAAUAAAAHAAEAAQAFAAUAAAAHABIAAQAFAAUAAAAHABMAAQAFAAUAAAAHABQAAQAFAAUAAAAHABUAAQAFAAUAAAAHABYAAQAFAAUAAAAIAAAAAQAFAAUAAAAIAAEAAQAFAAUAAAAIABIAAQAFAAUAAAAIABMAAQAFAAUAAAAIABQAAQAFAAUAAAAIABUAAQAFAAUAAAAIABYAAQAFAAUAAAAJAAAAAQAFAAUAAAAJAAEAAQAFAAUAAAAJABIAAQAFAAUAAAAJABMAAQAFAAUAAAAJABQAAQAFAAUAAAAJABUAAQAFAAUAAAAJABYAAQAFAAUAAAAKAAAAAQAFAAUAAAAKAAEAAQAFAAUAAAAKABIAAQAFAAUAAAAKABMAAQAFAAUAAAAKABQAAQAFAAUAAAAKABUAAQAFAAUAAAAKABYAAQAFAAUAAAALAAAAAQAFAAUAAAALAAEAAQAFAAUAAAALABIAAQAFAAUAAAALABMAAQAFAAUAAAALABQAAQAFAAUAAAALABUAAQAFAAUAAAALABYAAQAFAAUAAAAMAAAAAQAFAAUAAAAMAAEAAQAFAAUAAAAMABIAAQAFAAUAAAAMABMAAQAFAAUAAAAMABQAAQAFAAUAAAAMABUAAQAFAAUAAAAMABYAAQAFAAUAAAANAAAAAQAFAAUAAAANAAEAAQAFAAUAAAANABIAAQAFAAUAAAANABMAAQAFAAUAAAANABQAAQAFAAUAAAANABUAAQAFAAUAAAANABYAAQAFAAUAAAAOAAAAAQAFAAUAAAAOAAEAAQAFAAUAAAAOABIAAQAFAAUAAAAOABMAAQAFAAUAAAAOABQAAQAFAAUAAAAOABUAAQAFAAUAAAAOABYAAQAFAAUAAAAPAAAAAQAFAAUAAAAPAAEAAQAFAAUAAAAPABIAAQAFAAUAAAAPABMAAQAFAAUAAAAPABQAAQAFAAUAAAAPABUAAQAFAAUAAAAPABYAAQAFAAUAAAAQAAAAAQAFAAUAAAAQAAEAAQAFAAUAAAAQABIAAQAFAAUAAAAQABMAAQAFAAUAAAAQABQAAQAFAAUAAAAQABUAAQAFAAUAAAAQABYAAQAFAAUAAAARAAAAAQAFAAUAAAARAAEAAQAFAAUAAAARABIAAQAFAAUAAAARABMAAQAFAAUAAAARABQAAQAFAAUAAAARABUAAQAFAAUAAAARABYAAQAFAAUAAAASAAAAAQAFAAUAAAASAAEAAQAFAAUAAAASABIAAQAFAAUAAAASABMAAQAFAAUAAAASABQAAQAFAAUAAAASABUAAQAFAAUAAAASABYAAQAFAAUAAAATAAAAAQAFAAUAAAATAAEAAQAFAAUAAAATABIAAQAFAAUAAAATABMAAQAFAAUAAAATABQAAQAFAAUAAAATABUAAQAFAAUAAAATABYAAQAFAAUAAAAUAAAAAQAFAAUAAAAUAAEAAQAFAAUAAAAUABIAAQAFAAUAAAAUABMAAQAFAAUAAAAUABQAAQAFAAUAAAAUABUAAQAFAAUAAAAUABYAAQAFAAUAAAAVAAAAAQAFAAUAAAAVAAEAAQAFAAUAAAAVABIAAQAFAAUAAAAVABMAAQAFAAUAAAAVABQAAQAFAAUAAAAVABUAAQAFAAUAAAAVABYAAQAFAAUAAAAWAAAAAQAFAAUAAAAWAAEAAQAFAAUAAAAWABIAAQAFAAUAAAAWABMAAQAFAAUAAAAWABQAAQAFAAUAAAAWABUAAQAFAAUAAAAWABYAAQAFAAUAAAAXAAAAAQAFAAUAAAAXAAEAAQAFAAUAAAAXABIAAQAFAAUAAAAXABMAAQAFAAUAAAAXABQAAQAFAAUAAAAXABUAAQAFAAUAAAAXABYAAQAFAAUAAAAYAAAAAQAFAAUAAAAYAAEAAQAFAAUAAAAYABIAAQAFAAUAAAAYABMAAQAFAAUAAAAYABQAAQAFAAUAAAAYABUAAQAFAAUAAAAYABYAAQAFAAUAAAAZAAAAAQAFAAUAAAAZAAEAAQAFAAUAAAAZABIAAQAFAAUAAAAZABMAAQAFAAUAAAAZABQAAQAFAAUAAAAZABUAAQAFAAUAAAAZABYAAQAFAAUAAAAaAAAAAQAFAAUAAAAaAAEAAQAFAAUAAAAaABIAAQAFAAUAAAAaABMAAQAFAAUAAAAaABQAAQAFAAUAAAAaABUAAQAFAAUAAAAaABYAAQAFAAUAAAAbAAAAAQAFAAUAAAAbAAEAAQAFAAUAAAAbABIAAQAFAAUAAAAbABMAAQAFAAUAAAAbABQAAQAFAAUAAAAbABUAAQAFAAUAAAAbABYAAQAFAAUAAAAcAAAAAQAFAAUAAAAcAAEAAQAFAAUAAAAcABIAAQAFAAUAAAAcABMAAQAFAAUAAAAcABQAAQAFAAUAAAAcABUAAQAFAAUAAAAcABYAAQAFAAUAAAAdAAAAAQAFAAUAAAAdAAEAAQAFAAUAAAAdABIAAQAFAAUAAAAdABMAAQAFAAUAAAAdABQAAQAFAAUAAAAdABUAAQAFAAUAAAAdABYAAQAFAAUAAAAeAAAAAQAFAAUAAAAeAAEAAQAFAAUAAAAeABIAAQAFAAUAAAAeABMAAQAFAAUAAAAeABQAAQAFAAUAAAAeABUAAQAFAAUAAAAeABYAAQAFAAUAAAAfAAAAAQAFAAUAAAAfAAEAAQAFAAUAAAAfABIAAQAFAAUAAAAfABMAAQAFAAUAAAAfABQAAQAFAAUAAAAfABUAAQAFAAUAAAAfABYAAQAFAAUAAAAgAAAAAQAFAAUAAAAgAAEAAQAFAAUAAAAgABIAAQAFAAUAAAAgABMAAQAFAAUAAAAgABQAAQAFAAUAAAAgABUAAQAFAAUAAAAgABYAAQAFAAUAAAAhAAAAAQAFAAUAAAAhAAEAAQAFAAUAAAAhABIAAQAFAAUAAAAhABMAAQAFAAUAAAAhABQAAQAFAAUAAAAhABUAAQAFAAUAAAAhABYAAQAFAAUAAAAiAAAAAQAFAAUAAAAiAAEAAQAFAAUAAAAiABIAAQAFAAUAAAAiABMAAQAFAAUAAAAiABQAAQAFAAUAAAAiABUAAQAFAAUAAAAiABYAAQAFAAUAAAAjAAAAAQAFAAUAAAAjAAEAAQAFAAUAAAAjABIAAQAFAAUAAAAjABMAAQAFAAUAAAAjABQAAQAFAAUAAAAjABUAAQAFAAUAAAAjABYAAQAFAAUAAAAkAAAAAQAFAAUAAAAkAAEAAQAFAAUAAAAkABIAAQAFAAUAAAAkABMAAQAFAAUAAAAkABQAAQAFAAUAAAAkABUAAQAFAAUAAAAkABYAAQAFAAUAAAAlAAAAAQAFAAUAAAAlAAEAAQAFAAUAAAAlABIAAQAFAAUAAAAlABMAAQAFAAUAAAAlABQAAQAFAAUAAAAlABUAAQAFAAUAAAAlABYAAQAFAAUAAAAmAAAAAQAFAAUAAAAmAAEAAQAFAAUAAAAmAAIAAQAFAAUAAAAmAAMAAQAFAAUAAAAmAAQAAQAFAAUAAAAmAAUAAQAFAAUAAAAmAAYAAQAFAAUAAAAmAAcAAQAFAAUAAAAmAAgAAQAFAAUAAAAmAAkAAQAFAAUAAAAmAAoAAQAFAAUAAAAmAAsAAQAFAAUAAAAmAAwAAQAFAAUAAAAmAA0AAQAFAAUAAAAmAA4AAQAFAAUAAAAmAA8AAQAFAAUAAAAmABAAAQAFAAUAAAAmABEAAQAFAAUAAAAmABIAAQAFAAUAAAAmABMAAQAFAAUAAAAmABQAAQAFAAUAAAAmABUAAQAFAAUAAAAmABYAAQAFAAUAAAAnAAAAAQAFAAUAAAAnAAEAAQAFAAUAAAAnAAIAAQAFAAUAAAAnAAMAAQAFAAUAAAAnAAQAAQAFAAUAAAAnAAUAAQAFAAUAAAAnAAYAAQAFAAUAAAAnAAcAAQAFAAUAAAAnAAgAAQAFAAUAAAAnAAkAAQAFAAUAAAAnAAoAAQAFAAUAAAAnAAsAAQAFAAUAAAAnAAwAAQAFAAUAAAAnAA0AAQAFAAUAAAAnAA4AAQAFAAUAAAAnAA8AAQAFAAUAAAAnABAAAQAFAAUAAAAnABEAAQAFAAUAAAAnABIAAQAFAAUAAAAnABMAAQAFAAUAAAAnABQAAQAFAAUAAAAnABUAAQAFAAUAAAAnABYAAQAFAAUAAAA=")
+tile_set = ExtResource("2_5crlr")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="Node2D" unique_id=1847448111]
+tile_map_data = PackedByteArray("AAACAAYAAQAAAAUAAAACAAgAAQAHAAIAAAADAAQAAQAGAAIAAAADAAYAAQAHAAIAAAADAAcAAQAGAAIAAAADAAgAAQABAAUAAAADAA4AAQAAAAUAAAAFAAUAAQAAAAUAAAAFAAYAAQAAAAUAAAAFAAcAAQAGAAIAAAAFAAsAAQAHAAIAAAAFAA4AAQAHAAIAAAAGAAIAAQABAAUAAAAGAAgAAQAHAAIAAAAHAAUAAQAGAAIAAAAHAAcAAQAHAAIAAAAHAA0AAQABAAUAAAAIAAsAAQAGAAIAAAAIAAwAAQABAAUAAAAIAA4AAQAAAAUAAAAJAAUAAQAGAAIAAAAJAA4AAQAHAAIAAAAKAAoAAQAAAAUAAAAKAA4AAQABAAUAAAAKABAAAQABAAUAAAAKABEAAQABAAUAAAALAAcAAQABAAUAAAALAAoAAQAHAAIAAAAMAA4AAQAGAAIAAAANAAIAAQAGAAIAAAANAAMAAQAHAAIAAAANAAQAAQAAAAUAAAANAAYAAQAHAAIAAAAOAAYAAQAAAAUAAAAOAA0AAQABAAUAAAAOABAAAQABAAUAAAAPABEAAQAAAAUAAAAQAAIAAQAHAAIAAAAQAAUAAQAGAAIAAAAQAAgAAQAGAAIAAAAQAAoAAQABAAUAAAAQAA8AAQAHAAIAAAARAAMAAQAAAAUAAAARAAQAAQAAAAUAAAARAAcAAQAGAAIAAAARAAoAAQAHAAIAAAARAAsAAQAGAAIAAAARAA4AAQAHAAIAAAASAAMAAQAGAAIAAAASAAwAAQAHAAIAAAASAA4AAQAHAAIAAAATAAMAAQAAAAUAAAATAAQAAQABAAUAAAATAAoAAQABAAUAAAATAA4AAQAGAAIAAAAUAAUAAQAHAAIAAAAUAAcAAQABAAUAAAAUABAAAQAGAAIAAAAVAAkAAQAGAAIAAAAVAA0AAQAAAAUAAAAWAAYAAQAAAAUAAAAWAAgAAQABAAUAAAAWAAkAAQAAAAUAAAAWAAoAAQAGAAIAAAAWAAsAAQAGAAIAAAAWABEAAQAAAAUAAAAXAAkAAQABAAUAAAAXAAwAAQAGAAIAAAAXAA0AAQAHAAIAAAAXAA4AAQABAAUAAAAYAAIAAQAAAAUAAAAYAAYAAQAAAAUAAAAYAAwAAQAGAAIAAAAYABAAAQABAAUAAAAYABEAAQABAAUAAAAZAAUAAQABAAUAAAAZAAkAAQAHAAIAAAAZABAAAQAGAAIAAAAaAAcAAQABAAUAAAAaAA0AAQAHAAIAAAAaAA4AAQAAAAUAAAAbAAcAAQAGAAIAAAAcAAQAAQAGAAIAAAAcAAkAAQAHAAIAAAAcABAAAQAAAAUAAAAeAAYAAQABAAUAAAAeAAkAAQAGAAIAAAAeAAsAAQAHAAIAAAAfAAQAAQAGAAIAAAAfAAcAAQAAAAUAAAAfAA0AAQAGAAIAAAAgAAkAAQAGAAIAAAAgAAsAAQAGAAIAAAAhAAIAAQAHAAIAAAAhAAQAAQAGAAIAAAAhAA8AAQABAAUAAAAiAAcAAQAGAAIAAAAiAA4AAQABAAUAAAAjAAgAAQAGAAIAAAAjAAoAAQAAAAUAAAAkAAMAAQAGAAIAAAAkAAYAAQABAAUAAAAkAAgAAQAAAAUAAAAkAAsAAQAHAAIAAAAkABEAAQAHAAIAAAAlABAAAQABAAUAAAAAAAYAAQAFAAMAAAAAAAoAAQAEAAUAAAAAABIAAQAFAAMAAAABABIAAQAFAAMAAAABABMAAQAEAAQAAAACABUAAQAEAAQAAAADABIAAQAEAAUAAAADABMAAQAFAAQAAAAGABMAAQAFAAQAAAAGABQAAQAEAAUAAAAGABYAAQADAAUAAAAKABIAAQAEAAQAAAANABIAAQAEAAQAAAAOABIAAQAEAAUAAAAOABMAAQAEAAQAAAAOABQAAQAEAAMAAAAPABIAAQAFAAQAAAAQABMAAQAFAAMAAAASABMAAQAEAAUAAAAVABYAAQADAAMAAAAXABYAAQAFAAQAAAAYABYAAQAEAAQAAAAaABUAAQAEAAUAAAAbABMAAQAEAAMAAAAdABQAAQAFAAQAAAAdABYAAQADAAQAAAAeABMAAQAEAAMAAAAeABQAAQAEAAQAAAAeABYAAQADAAMAAAAfABUAAQAFAAQAAAAhABIAAQADAAQAAAAhABMAAQAEAAUAAAAhABQAAQAEAAQAAAAiABUAAQADAAQAAAAjABUAAQAFAAMAAAAjABYAAQAFAAMAAAAkABIAAQADAAUAAAAlABIAAQAEAAQAAAAlABYAAQAEAAQAAAAnABMAAQAFAAMAAAAnABQAAQAEAAUAAAAnABYAAQAEAAUAAAAMAAEAAQAFAAMAAAANAAAAAQAFAAQAAAATAAEAAQAEAAMAAAAWAAEAAQADAAQAAAAXAAAAAQAEAAUAAAAXAAEAAQAEAAQAAAAmAAIAAQADAAMAAAAmAAMAAQADAAQAAAAmAAUAAQAEAAMAAAAmAAcAAQAFAAMAAAAmAAoAAQAFAAMAAAAnAAAAAQAFAAMAAAAnAAgAAQAEAAUAAAAnAA4AAQAEAAQAAAAcAAEAAQADAAQAAAAeAAAAAQADAAMAAAABAAEAAQAEAAUAAAA=")
+tile_set = ExtResource("2_5crlr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1782919283]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=432439357]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Constructs" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1436227727]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -29.0
+offset_right = -79.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=229434104 node_paths=PackedStringArray("to_show", "audio")]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
+icon = SubResource("AtlasTexture_4mcbk")
+script = ExtResource("8_torvr")
+to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button" unique_id=1367076000]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button/Control" unique_id=6209757]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Belt"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button/Control" unique_id=1686877816]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "4    2"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button/Control" unique_id=958766320]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button/Control" unique_id=948173440]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button" unique_id=1830225155]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1173531571 node_paths=PackedStringArray("to_show", "audio")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = SubResource("AtlasTexture_5crlr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
+script = ExtResource("8_torvr")
+to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button2" unique_id=1420051629]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button2/Control" unique_id=1697789248]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Pipe"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button2/Control" unique_id=834336789]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "2    2"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button2/Control" unique_id=317365149]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button2/Control" unique_id=774067511]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button2" unique_id=1081890958]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1800787938 node_paths=PackedStringArray("to_show", "audio")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = SubResource("AtlasTexture_hbc2u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
+script = ExtResource("8_torvr")
+to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button3" unique_id=799667986]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button3/Control" unique_id=1217307719]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Planter"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button3/Control" unique_id=739509487]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "4    4"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button3/Control" unique_id=1275120755]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button3/Control" unique_id=787278118]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button3" unique_id=2024263312]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button4" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1118686184 node_paths=PackedStringArray("to_show", "audio")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = SubResource("AtlasTexture_torvr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
+script = ExtResource("8_torvr")
+to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button4" unique_id=1051377678]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button4/Control" unique_id=1218860857]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Siphon"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button4/Control" unique_id=1667234022]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "6    8"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button4/Control" unique_id=1563260009]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button4/Control" unique_id=392768898]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button4" unique_id=1750034347]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button5" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=3203714 node_paths=PackedStringArray("to_show", "audio")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = SubResource("AtlasTexture_8xkvn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
+script = ExtResource("8_torvr")
+to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button5" unique_id=2094385860]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button5/Control" unique_id=1416177635]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Rock Drill"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button5/Control" unique_id=1757053515]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "0    3"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button5/Control" unique_id=380019017]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button5/Control" unique_id=1155787687]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button5" unique_id=248411430]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button6" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1774244246 node_paths=PackedStringArray("to_show", "audio")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = SubResource("AtlasTexture_p5x2j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
+script = ExtResource("8_torvr")
+to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button6" unique_id=938231148]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button6/Control" unique_id=64574147]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 17.0
+offset_right = 20.0
+offset_bottom = 25.0
+text = "Wood Cutter"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button6/Control" unique_id=1620482371]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "3    0"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button6/Control" unique_id=636237945]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button6/Control" unique_id=1182056547]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button6" unique_id=763373562]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button7" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1072461668 node_paths=PackedStringArray("to_show", "audio")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = SubResource("AtlasTexture_yvb8b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
+script = ExtResource("8_torvr")
+to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button7" unique_id=542253197]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button7/Control" unique_id=789829917]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Crusher"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button7/Control" unique_id=764884596]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "4    4"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button7/Control" unique_id=1950652034]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button7/Control" unique_id=646384352]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button7" unique_id=1491626310]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Button8" type="Button" parent="CanvasLayer/Control/Constructs" unique_id=1919375379 node_paths=PackedStringArray("to_show", "audio")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/icon = SubResource("AtlasTexture_3hf6u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hbc2u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hbc2u")
+script = ExtResource("8_torvr")
+to_show = NodePath("Control")
+audio = NodePath("AudioStreamPlayer2")
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/Constructs/Button8" unique_id=974369302]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Constructs/Button8/Control" unique_id=856388388]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 17.0
+offset_right = 19.0
+offset_bottom = 25.0
+text = "Brewing"
+label_settings = SubResource("LabelSettings_8xkvn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammount" type="Label" parent="CanvasLayer/Control/Constructs/Button8/Control" unique_id=1043169195]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 19.0
+offset_bottom = -9.0
+text = "6    6"
+label_settings = SubResource("LabelSettings_p5x2j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button8/Control" unique_id=2143971611]
+position = Vector2(3, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control/Constructs/Button8/Control" unique_id=611686686]
+position = Vector2(15, -6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/Control/Constructs/Button8" unique_id=702414261]
+stream = ExtResource("15_mctxq")
+volume_db = -15.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=761006918]
+z_index = 1
+layout_mode = 0
+offset_left = 266.0
+offset_top = 2.0
+offset_right = 313.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 6
+text = " Wood: 9999
+ Stone: 9999
+Money: 9999"
+label_settings = SubResource("LabelSettings_yvb8b")
+script = ExtResource("8_hbc2u")
+label_type = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control" unique_id=1794855320]
+z_index = 1
+layout_mode = 0
+offset_left = 262.0
+offset_top = 28.0
+offset_right = 309.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 6
+text = ": 9999
+: 9999
+: 9999
+: 9999"
+label_settings = SubResource("LabelSettings_nm5af")
+script = ExtResource("8_hbc2u")
+label_type = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control" unique_id=547948023]
+z_index = 1
+layout_mode = 0
+offset_left = 292.0
+offset_top = 28.0
+offset_right = 339.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 6
+text = ": 9999
+: 9999
+: 9999
+: 9999"
+label_settings = SubResource("LabelSettings_nm5af")
+script = ExtResource("8_hbc2u")
+label_type = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=1537086830]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = -24.0
+offset_right = 80.0
+offset_bottom = 40.0
+texture = ExtResource("10_8xkvn")
+region_rect = Rect2(48, 48, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=220123384]
+layout_mode = 0
+offset_left = 248.0
+offset_right = 320.0
+offset_bottom = 72.0
+texture = ExtResource("10_8xkvn")
+region_rect = Rect2(0, 48, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Money" type="Sprite2D" parent="CanvasLayer/Control" unique_id=247674940]
+position = Vector2(258, 15)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+
+[node name="Money2" type="Sprite2D" parent="CanvasLayer/Control" unique_id=856682393]
+position = Vector2(258, 23)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="Money3" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1760792792]
+position = Vector2(258, 6)
+texture = ExtResource("9_p5x2j")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Money4" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1819848275]
+position = Vector2(258, 33)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 3
+
+[node name="Money5" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1604450035]
+position = Vector2(258, 43)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 9
+
+[node name="Money6" type="Sprite2D" parent="CanvasLayer/Control" unique_id=2034517254]
+position = Vector2(258, 53)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 15
+
+[node name="Money7" type="Sprite2D" parent="CanvasLayer/Control" unique_id=613896308]
+position = Vector2(258, 63)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 21
+
+[node name="Money8" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1949310910]
+position = Vector2(288, 33)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 11
+
+[node name="Money9" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1998381657]
+position = Vector2(288, 43)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 5
+
+[node name="Money10" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1557602688]
+position = Vector2(288, 53)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 17
+
+[node name="Money11" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1358112655]
+position = Vector2(288, 63)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 23
+
+[node name="Shop" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1846293314 node_paths=PackedStringArray("shop_window", "price_labels")]
+position = Vector2(239, 9)
+texture = ExtResource("10_8xkvn")
+hframes = 8
+vframes = 6
+frame = 30
+script = ExtResource("14_x0cd2")
+shop_window = NodePath("../NinePatchRect3")
+price_labels = [NodePath("../NinePatchRect3/GridContainer/Button/Label"), NodePath("../NinePatchRect3/GridContainer/Button2/Label"), NodePath("../NinePatchRect3/GridContainer/Button3/Label")]
+price_msgs = Array[String](["Upgrade Belts", "Upgrade Planter", "Upgrade Processor"])
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/Shop" unique_id=13933589 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+script = ExtResource("8_torvr")
+node = NodePath("..")
+scaling = Vector2(1.125, 1.125)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control" unique_id=1466715294]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 162.0
+offset_top = 129.0
+offset_right = 320.0
+offset_bottom = 184.0
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="CanvasLayer/Control" unique_id=1039417146]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 70.0
+offset_top = 21.0
+offset_right = 245.0
+offset_bottom = 129.0
+texture = ExtResource("10_8xkvn")
+region_rect = Rect2(48, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/NinePatchRect3" unique_id=1730768684]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 172.0
+offset_bottom = 105.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/NinePatchRect3/GridContainer" unique_id=969192032]
+layout_mode = 2
+icon = SubResource("AtlasTexture_x0cd2")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button" unique_id=1515795119]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 91.0
+offset_bottom = 19.0
+text = "Belt Upgrade
+     : 25"
+label_settings = SubResource("LabelSettings_x0cd2")
+
+[node name="Pot1" type="Sprite2D" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button" unique_id=1458565943]
+position = Vector2(31, 16)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 17
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/NinePatchRect3/GridContainer" unique_id=177917357]
+layout_mode = 2
+icon = SubResource("AtlasTexture_nm5af")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button2" unique_id=1162461729]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 91.0
+offset_bottom = 19.0
+text = "Planter Upgrade
+     : 25       : 25"
+label_settings = SubResource("LabelSettings_x0cd2")
+
+[node name="Pot1" type="Sprite2D" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button2" unique_id=755208372]
+position = Vector2(31, 16)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 17
+
+[node name="Pot2" type="Sprite2D" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button2" unique_id=352267126]
+position = Vector2(58, 16)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 11
+
+[node name="Button3" type="Button" parent="CanvasLayer/Control/NinePatchRect3/GridContainer" unique_id=797888012]
+layout_mode = 2
+icon = SubResource("AtlasTexture_8s4c3")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button3" unique_id=2107367978]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 91.0
+offset_bottom = 19.0
+text = "Processor Upgrade
+     : 25      : 25"
+label_settings = SubResource("LabelSettings_x0cd2")
+
+[node name="Pot1" type="Sprite2D" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button3" unique_id=1022067876]
+position = Vector2(31, 16)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 17
+
+[node name="Pot2" type="Sprite2D" parent="CanvasLayer/Control/NinePatchRect3/GridContainer/Button3" unique_id=969252569]
+position = Vector2(57, 16)
+texture = ExtResource("5_p5x2j")
+hframes = 6
+vframes = 6
+frame = 23
+
+[node name="RecipeBook" type="Sprite2D" parent="." unique_id=2021537264]
+position = Vector2(237, 177)
+texture = ExtResource("12_yvb8b")
+hframes = 2
+frame = 1
+script = ExtResource("15_nm5af")
+move_location = Vector2(237, 135)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=513518270]
+bus = &"music"
+script = ExtResource("14_mctxq")
+
+[node name="Label" type="Label" parent="." unique_id=1348737235]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 163.0
+offset_bottom = 15.0
+text = "Press \"SPACE\" to enter/get out of build mode
+Press \"R\" to rotate"
+label_settings = SubResource("LabelSettings_mctxq")
+
+[connection signal="button_up" from="CanvasLayer/Control/Constructs/Button" to="Node2D/GhostConstruct" method="_select_construct" binds= [1]]
+[connection signal="button_up" from="CanvasLayer/Control/Constructs/Button2" to="Node2D/GhostConstruct" method="_select_construct" binds= [2]]
+[connection signal="button_up" from="CanvasLayer/Control/Constructs/Button3" to="Node2D/GhostConstruct" method="_select_construct" binds= [3]]
+[connection signal="button_up" from="CanvasLayer/Control/Constructs/Button4" to="Node2D/GhostConstruct" method="_select_construct" binds= [4]]
+[connection signal="button_up" from="CanvasLayer/Control/Constructs/Button5" to="Node2D/GhostConstruct" method="_select_construct" binds= [5]]
+[connection signal="button_up" from="CanvasLayer/Control/Constructs/Button6" to="Node2D/GhostConstruct" method="_select_construct" binds= [6]]
+[connection signal="button_up" from="CanvasLayer/Control/Constructs/Button7" to="Node2D/GhostConstruct" method="_select_construct" binds= [7]]
+[connection signal="button_up" from="CanvasLayer/Control/Constructs/Button8" to="Node2D/GhostConstruct" method="_select_construct" binds= [8]]
+[connection signal="button_up" from="CanvasLayer/Control/Shop/Button" to="CanvasLayer/Control/Shop" method="toggle_shop_window"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/Panel" to="RecipeBook" method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/Panel" to="RecipeBook" method="_on_panel_mouse_exited"]
+[connection signal="button_up" from="CanvasLayer/Control/NinePatchRect3/GridContainer/Button" to="CanvasLayer/Control/Shop" method="_upgrade" binds= [1]]
+[connection signal="button_up" from="CanvasLayer/Control/NinePatchRect3/GridContainer/Button2" to="CanvasLayer/Control/Shop" method="_upgrade" binds= [3]]
+[connection signal="button_up" from="CanvasLayer/Control/NinePatchRect3/GridContainer/Button3" to="CanvasLayer/Control/Shop" method="_upgrade" binds= [7]]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

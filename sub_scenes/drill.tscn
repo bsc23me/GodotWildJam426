@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c23eusp10ea0r"]
+
+[ext_resource type="Texture2D" uid="uid://ctooftfwpgrxr" path="res://sprites/TilesAndItens.png" id="1_0g50j"]
+[ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_0g50j"]
+[ext_resource type="Script" uid="uid://bj7t0e5p1du27" path="res://_scripts/resource_generator.gd" id="3_0g50j"]
+[ext_resource type="AudioStream" uid="uid://dc0q8tv3s5e53" path="res://audio/Machine Placed1.1.mp3" id="6_ncfof"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
+atlas = ExtResource("1_0g50j")
+region = Rect2(80, 80, 16, 16)
+
+[node name="Drill" type="Sprite2D" unique_id=1708173246]
+texture = SubResource("AtlasTexture_468fr")
+script = ExtResource("2_0g50j")
+metadata/_custom_type_script = "uid://da145ili7n1y2"
+
+[node name="Node" type="Node" parent="." unique_id=30711781]
+script = ExtResource("3_0g50j")
+type = 2
+delay = 2.0
+amount = 1
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1212821168]
+stream = ExtResource("6_ncfof")
+volume_db = -10.0
+autoplay = true

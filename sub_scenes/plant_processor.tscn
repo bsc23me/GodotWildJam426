@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bp5qvjhy560mc"]
+
+[ext_resource type="Texture2D" uid="uid://ctooftfwpgrxr" path="res://sprites/TilesAndItens.png" id="1_h70mr"]
+[ext_resource type="Script" uid="uid://cxtcarp8y08jk" path="res://_scripts/crafter.gd" id="2_h70mr"]
+[ext_resource type="Script" uid="uid://gcq7ll666m8l" path="res://_scripts/button.gd" id="3_ruscm"]
+[ext_resource type="AudioStream" uid="uid://dc0q8tv3s5e53" path="res://audio/Machine Placed1.1.mp3" id="4_twfft"]
+[ext_resource type="AudioStream" uid="uid://cces5tfb33hi4" path="res://audio/Plant Crushed.mp3" id="5_dbui1"]
+[ext_resource type="Script" uid="uid://4yvhma3vmbm4" path="res://_scripts/audio.gd" id="6_due6l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_468fr"]
+atlas = ExtResource("1_h70mr")
+region = Rect2(80, 64, 16, 16)
+
+[node name="PlantProcessor" type="Sprite2D" unique_id=1449174723 node_paths=PackedStringArray("squish")]
+texture = SubResource("AtlasTexture_468fr")
+script = ExtResource("2_h70mr")
+product_path = "res://sub_scenes/rose_powder.tscn"
+one_to_one = true
+needed_ingredients = Array[int]([4, 1, 2, 3])
+max_items = 1
+delay = 10.0
+squish = NodePath("Button")
+metadata/_custom_type_script = "uid://da145ili7n1y2"
+
+[node name="Button" type="Button" parent="." unique_id=676106636 node_paths=PackedStringArray("node")]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+flat = true
+script = ExtResource("3_ruscm")
+node = NodePath("..")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=2011729999]
+stream = ExtResource("4_twfft")
+volume_db = -10.0
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=760357510]
+stream = ExtResource("5_dbui1")
+volume_db = -10.0
+script = ExtResource("6_due6l")

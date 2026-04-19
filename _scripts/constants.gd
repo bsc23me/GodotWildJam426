@@ -1,0 +1,30 @@
+extends Node
+
+class_name GameConstants
+
+var DEBUG_MODE = false
+
+var UPGRADES: Dictionary[TileConstruct.TileType,int] = {
+	TileConstruct.TileType.BELT:1,
+	TileConstruct.TileType.PLANTER:1,
+	TileConstruct.TileType.PLANT_PROCESSOR:1
+	}
+
+enum ItemType {
+DEFAULT, 
+ROSE_PLANT, 
+FIRE_PLANT, 
+MANA_PLANT, 
+POISON_PLANT, 
+FIRE_POWDER, 
+MANA_POWDER, 
+POISON_POWDER, 
+ROSE_POWDER,
+HEALTH_POTION,
+FIRE_POTION,
+POISON_POTION,
+MANA_POTION,
+LOVE_POTION,
+ANTIDOTE,
+SPEED_POTION,
+EXPLOSIVE_POTION}

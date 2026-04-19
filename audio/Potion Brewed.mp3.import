@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3tsjs1rs0gr4"
+path="res://.godot/imported/Potion Brewed.mp3-5cdd12b3b04d88ad62ce19b83b8a1003.mp3str"
+
+[deps]
+
+source_file="res://audio/Potion Brewed.mp3"
+dest_files=["res://.godot/imported/Potion Brewed.mp3-5cdd12b3b04d88ad62ce19b83b8a1003.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

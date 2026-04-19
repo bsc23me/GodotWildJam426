@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bauuco10jmc7d"]
+
+[ext_resource type="Texture2D" uid="uid://4i4mme71dxo7" path="res://sprites/TreadmillOrange.png" id="1_nxa6v"]
+[ext_resource type="Script" uid="uid://da145ili7n1y2" path="res://_scripts/TileConstruct.gd" id="2_nxa6v"]
+[ext_resource type="AudioStream" uid="uid://bx3xss6wd2up2" path="res://audio/Belt Placed 2.mp3" id="3_6wagu"]
+
+[sub_resource type="Animation" id="Animation_nxa6v"]
+resource_name = "belt"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6wagu"]
+_data = {
+&"belt": SubResource("Animation_nxa6v")
+}
+
+[node name="Belt" type="Sprite2D" unique_id=592253102]
+texture = ExtResource("1_nxa6v")
+hframes = 4
+script = ExtResource("2_nxa6v")
+metadata/_custom_type_script = "uid://da145ili7n1y2"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=134148760]
+libraries/ = SubResource("AnimationLibrary_6wagu")
+autoplay = &"belt"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=167194938]
+stream = ExtResource("3_6wagu")
+autoplay = true

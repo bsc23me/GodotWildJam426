@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dc0q8tv3s5e53"
+path="res://.godot/imported/Machine Placed1.1.mp3-02e55b232395459e1467ddf0abe565a5.mp3str"
+
+[deps]
+
+source_file="res://audio/Machine Placed1.1.mp3"
+dest_files=["res://.godot/imported/Machine Placed1.1.mp3-02e55b232395459e1467ddf0abe565a5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
